@@ -8,6 +8,7 @@
     "AFL-3.0"
   ],
   "require": {
+    "unbxd/magento2-product-feed": "*",
     "php": "~7.0.0|~7.1.0|~7.2.0"
   },
   "autoload": {

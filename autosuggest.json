@@ -1,0 +1,77 @@
+{
+				version: 'io',
+               platform: "io",
+                siteName: UnbxdSiteName,
+                APIKey: UnbxdApiKey,
+                minChars: 1,
+                maxSuggestion: 5,
+                delay: 100,
+                loadingClass: 'unbxd-as-loading',
+                preferInputWidthMainContent: true,
+                mainWidth: 0,
+                sideWidth: 475,
+                zIndex: 1000,
+                position: 'absolute',
+                template: '2column',
+                mainTpl: ['inFields', 'promotedSuggestions', 'keywordSuggestions', 'topQueries'],
+                sideTpl: ['popularProducts'],
+                sideContentOn: 'left',
+                showCarts: false,
+                cartType: 'separate',
+                onSimpleEnter: function onSimpleEnter() {
+                    this.input.form.submit();
+                },
+                onItemSelect: function onItemSelect(data,original) {
+                    if (data.type === 'IN_FIELD') {
+                        if (data.filtername) {
+                            window.location = this.input.form.action + '?q=' + encodeURIComponent(data.value) + '&filter=' + data.filtername + ':' + encodeURIComponent('"' + data.filtervalue + '"');
+                        } else {
+                            this.input.form.submit();
+                        }
+                    } else if (data.type === 'POPULAR_PRODUCTS') {
+                        window.location =  original.productUrl;
+                    } else {
+                        this.input.form.submit();
+                    }
+                },
+
+                inFields: {
+                    count: 3,
+                    fields: {
+                        category: 2,
+                        brand: 1
+                    },
+                    header: '',
+                    tpl: ''
+                },
+                topQueries: {
+                    count: 2,
+                    header: 'SUGGESTIONS',
+                    tpl: ''
+                },
+                "promotedSuggestions": {
+                    "count": 5,
+                    "header": ''
+                },
+                keywordSuggestions: {
+                    count: 2,
+                    header: '',
+                    tpl: ''
+                },
+                popularProducts: {
+                    count: 6,
+                    fields: ['title', 'doctype', 'autosuggest', 'price', 'imageUrl', 'productUrl'],
+                     name: true,
+		     nameFunctionOrKey: "title",
+                    price: true,
+                    priceFunctionOrKey: 'price',
+                    image: true,
+                    imageUrlOrFunction: 'imageUrl',
+                    currency: '$',
+                    header: 'POPULAR PRODUCTS',
+                    tpl: ''
+                },
+                filtered: true,
+                resultsContainerSelector: '#search_bar_container'
+
+            };

@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2020 Unbxd Inc.
+ */
+-->
+
+<!--
+/**
+ * Init development:
+ * @author jack
+ * @email jagadeesh@oceaniasolution.com
+ * @team MageCloud
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <unbxd_search_config>
+            <autosuggest>
+                <config_object><![CDATA[{
+				version: 'io',
+               platform: "io",
+                siteName: UnbxdSiteName,
+                APIKey: UnbxdApiKey,
+                minChars: 1,
+                maxSuggestion: 5,
+                delay: 100,
+                loadingClass: 'unbxd-as-loading',
+                preferInputWidthMainContent: true,
+                mainWidth: 0,
+                sideWidth: 475,
+                zIndex: 1000,
+                position: 'absolute',
+                template: '1column',
+                mainTpl: ['inFields', 'promotedSuggestions', 'keywordSuggestions', 'topQueries', 'popularProducts'],
+                sideTpl: [],
+                sideContentOn: 'left',
+                showCarts: false,
+                cartType: 'separate',
+                onSimpleEnter: function onSimpleEnter() {
+                    this.input.form.submit();
+                },
+                onItemSelect: function onItemSelect(data,original) {
+                    if (data.type === 'IN_FIELD') {
+                        if (data.filtername) {
+                            window.location = this.input.form.action + '?q=' + encodeURIComponent(data.value) + '&filter=' + data.filtername + ':' + encodeURIComponent('"' + data.filtervalue + '"');
+                        } else {
+                            this.input.form.submit();
+                        }
+                    } else if (data.type === 'POPULAR_PRODUCTS') {
+                        window.location =  original.productUrl;
+                    } else {
+                        this.input.form.submit();
+                    }
+                },
+
+                inFields: {
+                    count: 3,
+                    fields: {
+                        category: 2,
+                        brand: 1
+                    },
+                    header: '',
+                    tpl: ''
+                },
+                topQueries: {
+                    count: 2,
+                    header: '',
+                    tpl: ''
+                },
+                "promotedSuggestions": {
+                    "count": 5,
+                    "header": ''
+                },
+                keywordSuggestions: {
+                    count: 2,
+                    header: '',
+                    tpl: ''
+                },
+                popularProducts: {
+                    count: 5,
+                    fields: ['title', 'doctype', 'autosuggest', 'price', 'imageUrl', 'productUrl'],
+                     name: true,
+		     nameFunctionOrKey: "title",
+                    price: true,
+                    priceFunctionOrKey: 'price',
+                    image: true,
+                    imageUrlOrFunction: 'imageUrl',
+                    currency: '$',
+                    header: 'POPULAR PRODUCTS',
+                    tpl: ''
+                },
+                filtered: false,
+                resultsContainerSelector: '#search_bar_container'
+            }]]></config_object>
+            </autosuggest>
+            <search>
+                <config_object><![CDATA[{
+  searchBoxSelector: document.getElementById("search"),
+  searchTrigger: "click",
+  searchButtonSelector: document.getElementById("unbxd_search_btn"),
+  searchResultsSelector: document.getElementById("searchResultsWrapper"),
+  siteKey: UnbxdSiteName,
+  apiKey: UnbxdApiKey,
+  products:{
+      el:document.getElementById("searchResultsWrapper"),
+      productType:"SEARCH",
+      productClick: function(product,e) {
+          window.location=product.productUrl;
+      },
+      gridCount:getGridCount(),
+      productAttributes: ["title",
+        "uniqueId",
+        "price",
+        "sku",
+        "imageUrl",
+        "originalPrice",
+        "productUrl",
+      "description"],
+      attributesMap: {
+        unxTitle: "title",
+        unxImageUrl: "imageUrl",
+        unxPrice: "price",
+        unxStrikePrice: "originalPrice",
+        unxId: "uniqueId",
+        unxDescription: "description"
+      }
+  },
+  spellCheck: {
+    enabled: true,
+    el: document.getElementById("didYouMeanWrapper")
+  },
+  noResults: {
+      //noResultEl: document.getElementById("noResultWrapper"),
+      el: document.getElementById("noResultWrapper")
+  },
+  facet: {
+    facetsEl: document.getElementById("facetsWrapper"),
+    selectedFacetsEl: document.getElementById("selectedFacetWrapper"),
+    rangeFacetEl: document.getElementById("rangeFacetWrapper"),
+    multiLevelFacetEl: document.getElementById("bucketedFacetWrapper"),
+    applyMultipleFilters:checkMobile()
+  },
+  pagination: {
+    el: document.querySelectorAll(".unxPagination"),
+    type:'FIXED_PAGINATION'
+  },
+  breadcrumb: {
+    el: document.getElementById("breadcrumpContainer"),
+    enabled: false
+  },
+  pagesize: {
+    el: document.getElementById("changeNoOfProducts")
+  },
+
+  sort: {
+    el: document.getElementById("sortWrapper"),
+    options: [
+      {
+        value: "price desc",
+        text: "Price High to Low"
+      },
+      {
+        value: "price asc",
+        text: " Price Low to High"
+      }
+    ]
+  },
+  loader :{
+      el:document.getElementById("loaderEl")
+  },
+  productView:{
+    el: document.getElementById("productViewTypeContainer"),
+    viewTypes: getView()
+  },
+  banner: {
+    el: document.getElementById("bannerContainer"),
+    count: 1
+  },
+  swatches: {
+    enabled: false,
+    attributesMap: {
+      swatchList: "color",
+      swatchImgs: "unbxd_color_mapping",
+      swatchColors: "color"
+    }
+  },
+  hashMode:false,
+  updateUrls:true,
+  variants: {
+    enabled: true,
+    count: 1,
+    groupBy: "",
+    attributes: [],
+    mapping: {
+        image_url: "v_image_url"
+    }
+}
+}]]></config_object>
+            </search>
+            <category>
+                <config_object><![CDATA[{
+  searchBoxSelector: document.getElementById("search"),
+  searchTrigger: "click",
+  searchButtonSelector: document.getElementById("unbxd_search_btn"),
+  searchResultsSelector: document.getElementById("searchResultsWrapper"),
+  siteKey: UnbxdSiteName,
+  apiKey: UnbxdApiKey,
+  productType:"CATEGORY",
+  products:{
+      el:document.getElementById("searchResultsWrapper"),
+      productType:"CATEGORY",
+      productClick: function(product,e) {
+          window.location=product.productUrl;
+      },
+      gridCount:getGridCount(),
+      productAttributes: ["title",
+        "uniqueId",
+        "price",
+        "sku",
+        "imageUrl",
+        "originalPrice",
+        "productUrl",
+      "description"],
+      attributesMap: {
+        unxTitle: "title",
+        unxImageUrl: "imageUrl",
+        unxPrice: "price",
+        unxStrikePrice: "originalPrice",
+        unxId: "uniqueId",
+        unxDescription: "description"
+      }
+  },
+  spellCheck: {
+    enabled: true,
+    el: document.getElementById("didYouMeanWrapper")
+  },
+  noResults: {
+      //noResultEl: document.getElementById("noResultWrapper"),
+      el: document.getElementById("noResultWrapper")
+  },
+  facet: {
+    facetsEl: document.getElementById("facetsWrapper"),
+    selectedFacetsEl: document.getElementById("selectedFacetWrapper"),
+    rangeFacetEl: document.getElementById("rangeFacetWrapper"),
+    multiLevelFacetEl: document.getElementById("bucketedFacetWrapper"),
+    applyMultipleFilters:checkMobile()
+  },
+  pagination: {
+    el: document.querySelectorAll(".unxPagination"),
+    type:'FIXED_PAGINATION'
+  },
+  breadcrumb: {
+    el: document.getElementById("breadcrumpContainer"),
+    enabled: false
+  },
+  pagesize: {
+    el: document.getElementById("changeNoOfProducts")
+  },
+
+  sort: {
+    el: document.getElementById("sortWrapper"),
+    options: [
+      {
+        value: "price desc",
+        text: "Price High to Low"
+      },
+      {
+        value: "price asc",
+        text: " Price Low to High"
+      }
+    ]
+  },
+  loader :{
+      el:document.getElementById("loaderEl")
+  },
+  productView:{
+    el: document.getElementById("productViewTypeContainer"),
+    viewTypes: getView()
+  },
+  banner: {
+    el: document.getElementById("bannerContainer"),
+    count: 1
+  },
+  swatches: {
+    enabled: false,
+    attributesMap: {
+      swatchList: "color",
+      swatchImgs: "unbxd_color_mapping",
+      swatchColors: "color"
+    }
+  },
+  hashMode:false,
+  updateUrls:true,
+  variants: {
+    enabled: true,
+    count: 1,
+    groupBy: "",
+    attributes: [],
+    mapping: {
+        image_url: "v_image_url"
+    }
+}
+}
+                ]]></config_object>
+            </category>
+            <analytics>
+                <add_cart_btn_selector>button.action.primary.tocart</add_cart_btn_selector>
+               <!-- <remove_cart_item_selector>.action.action-delete</remove_cart_item_selector>-->
+            </analytics>
+        </unbxd_search_config>
+    </default>
+</config>

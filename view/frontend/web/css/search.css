@@ -1,0 +1,683 @@
+
+.UNX-header {
+  background: #f6f6f6;
+}
+.UNX-header-inner {
+  display: flex;
+  height: 80px;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+}
+.UNX-logo {
+  font-size: 26px;
+  font-weight: 500;
+  margin-right: 100px;
+}
+.UNX-input-wrapper {
+  position: relative;
+  width: 80%;
+}
+.UNX-input {
+  box-sizing: border-box;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #dae1e9;
+  border-radius: 25px;
+  background-color: #ffffff;
+  box-shadow: inset 0 1px 4px 0 rgba(133, 146, 172, 0.46);
+  color: #4b5975;
+  padding-left: 24px;
+}
+.UNX-search-btn {
+  height: 50px;
+  width: 56px;
+  border-radius: 0px 25px 25px 0px;
+  background-color: #323949;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.UNX-results-container {
+  margin: 0 auto;
+  width: 90%;
+}
+.UNX-product-results {
+  display: flex;
+}
+.UNX-results-container {
+  position: relative;
+}
+.UNX-facet-wrapper {
+  width: 25%;
+  padding: 0px 24px;
+  background: #ffffff;
+}
+.UNX-product-list {
+  display: block;
+  width: 75%;
+  margin-left: 24px;
+  padding-left: 24px;
+  background: #ffffff;
+}
+.UNX-grid-card {
+  width: 25%;
+  overflow: hidden;
+  padding: 20px 20px 20px 0px;
+}
+.UNX-row {
+  display: flex;
+}
+.UNX-row > .UNX-grid-card:last-child {
+  padding-right: 20px;
+}
+.UNX-img-wrapper {
+  width: 100%;
+  height: 270px;
+}
+.UNX-img-block {
+  max-width: 100%;
+}
+.UNX-list-card {
+  display: flex;
+  margin-bottom: 24px;
+}
+.UNX-list-card .UNX-img-wrapper {
+  width: 30%;
+  height: auto;
+}
+.UNX-list-card .UNX-product-content {
+  padding-left: 12px;
+  width: 60%;
+}
+.UNX-product-title {
+  color: #0a0b0c;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 17px;
+  margin: 5px 0px;
+}
+.UNX-sale-price {
+  color: #0a0b0c;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 17px;
+  display: inline-block;
+  padding-right: 12px;
+}
+.UNX-strike-price {
+  color: #e75178;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 17px;
+  text-decoration: line-through;
+}
+.UNX-swatch-color-list {
+  display: block;
+  overflow: auto;
+  white-space: pre;
+}
+.UNX-swatch-btn {
+  border-color: transparent;
+  margin: 5px 2px;
+  height: 24px;
+  width: 24px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.43);
+}
+.UNX-facets-inner-wrapper h3 {
+  color: #0a0b0c;
+  font-size: 20px;
+  font-weight: 500;
+}
+.UNX-change-facet {
+  display: flex;
+  background: transparent;
+  border-color: transparent;
+  padding: 0px;
+  height: 32px;
+  width: 100%;
+  align-items: center;
+  cursor: pointer;
+  white-space: pre;
+}
+.UNX-facet-text {
+  color: #666666;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  position: relative;
+  padding-left: 20px;
+}
+.UNX-facet-text:before {
+  content: " ";
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #c3c2c9;
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 0;
+}
+.UNX-facet-count {
+  color: #a7a7a7;
+  font-size: 12px;
+  display: inline-block;
+  padding-left: 6px;
+}
+.UNX-change-facet * {
+  pointer-events: none;
+}
+.UNX-facet-clear {
+  color: #0054d4;
+  background: transparent;
+  border-width: 0px;
+  font-size: 14px;
+}
+.UNX-facet-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+.UNX-delete-facet {
+  opacity: 0;
+}
+.UNX-selected-facets-wrap {
+  display: flex;
+  width: 100%;
+}
+.UNX-selected-facet-btn .UNX-facet-text:before {
+  background-color: #000000;
+  border-color: #000000;
+}
+.UNX-selected-facet-btn .UNX-facet-text:after {
+  border: 2px solid #fff;
+  border-right-style: none;
+  border-top-style: none;
+  content: "";
+  height: 3px;
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 6px;
+  z-index: 1;
+}
+.UNX-facets-selections,
+.UNX-selected-facets-inner {
+  display: flex;
+  align-items: center;
+}
+.UNX-selected-facet-header {
+  color: #333333;
+  font-size: 15px;
+  font-weight: 500;
+  padding-right: 24px;
+}
+.UNX-selected-facets-inner .UNX-facet-text:before,
+.UNX-selected-facets-inner .UNX-facet-text:after {
+  opacity: 0;
+  display: none;
+}
+.UNX-selected-facets-inner .UNX-delete-facet {
+  opacity: 1;
+}
+.UNX-selected-facets-inner .UNX-selected-facets-wrap {
+  border-radius: 25px;
+  background-color: #e1e6e9;
+  margin-right: 12px;
+}
+.UNX-delete-facet {
+  background: transparent;
+  border: 0px solid transparent;
+  font-size: 16px;
+  position: relative;
+  padding: 0;
+  width: 24px;
+  text-align: left;
+  top: -2px;
+  color: rgba(0, 0, 0, 0.4);
+}
+.UNX-clear-facet {
+  color: #717989;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  border-color: transparent;
+  background: transparent;
+  outline: none !important;
+}
+.UNX-slider-val-row {
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.UNX-line-wrap {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #f2f3f7;
+  left: 7px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+.UNX-line-wrap .UNX-line-inner {
+  height: 6px;
+  border-radius: 3px;
+  background: #1d2e44;
+  top: 0;
+}
+.UNX-round-handle {
+  height: 18px;
+  width: 18px;
+  border: 1px solid #dae1e9;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(133, 146, 172, 0.27);
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9;
+}
+.UNX-range-slider-wrapper {
+  height: 20px;
+  margin: 15px 0;
+  position: relative;
+}
+.UNX-primary-btn,
+.UNX-default-btn {
+  background: #323949;
+  color: #ffffff;
+  height: 32px;
+  border-color: #323949;
+  cursor: pointer;
+  font-size: 14px;
+}
+.UNX-default-btn {
+  background: transparent;
+  border-color: transparent;
+  color: #323949;
+}
+.UNX-spellcheck-block {
+  color: #717989;
+  font-size: 14px;
+  line-height: 15px;
+  margin: 5px 0px;
+  margin-top: 18px;
+}
+.UNX-suggestion {
+  margin: 0px;
+  background: transparent;
+  border-color: transparent;
+}
+.UNX-no-result {
+  font-size: 10px;
+  margin: 0px;
+}
+.UNX-result-info {
+  color: #717989;
+  font-size: 14px;
+  line-height: 15px;
+}
+.UNX-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 20px;
+}
+.UNX-result-right {
+  display: flex;
+  align-items: center;
+}
+.UNX-head-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0px;
+}
+.pagination-block button {
+  font-weight: 200;
+  background: transparent;
+  border-color: transparent;
+}
+.pagination-block {
+  display: flex;
+  align-items: center;
+}
+.UNX-page-button {
+  font-weight: 300;
+  padding: 1px 5px;
+}
+button.UNX-page-prev,
+button.UNX-page-next {
+  background: #c3c3c3;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  padding:0px;
+}
+.UNX-page-button.UNX-selected-page-item {
+  background-color: #000000;
+  color: #ffffff;
+}
+.UNX-change-pagination-wrap,
+.UNX-sort-wrapper,
+.UNX-change-products {
+  padding-left: 24px;
+}
+.UNX-page-prev {
+  margin-right: 6px;
+}
+.UNX-page-next {
+  margin-left: 6px;
+}
+.UNX-sort-item,
+.UNX-select-pagesize {
+  color: #656565;
+  font-weight: 400;
+  border: solid 1px #cccccc;
+  padding: 4px 24px 4px 8px;
+  width: auto;
+}
+.UNX-sort-header {
+  color: #717171;
+  font-weight: 400;
+  font-size: 13px;
+  padding-right: 10px;
+}
+.UNX-page-no-block {
+  display: flex;
+}
+.UNX-page-no-block {
+  display: flex;
+  max-width: 100px;
+  overflow-y: auto;
+}
+#loaderEl > div {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #313131;
+  font-weight: bold;
+  z-index: 11;
+  font-size: 39px;
+  background: #ffffffb5;
+  left: 0;
+}
+
+.m-facets-btn {
+  float: right;
+  background: transparent;
+  border: solid 1px #cccccc;
+  margin: 10px;
+  padding: 12px;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background: #ffffff;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 16px;
+}
+.UNX-product-view {
+  background: #ffffff;
+  border: solid 1px #d6d6d6;
+  padding: 4px 11px;
+  border-radius: 4px;
+}
+.UNX-sort-block {
+  display: flex;
+  align-items: center;
+}
+.UNX-sort-header {
+  white-space: nowrap;
+}
+.UNX-change-pagination-wrap.UNX-m-pagination {
+  display: none;
+}
+.UNX-facet-primary {
+  margin-right: 12px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+.UNX-no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  margin-top: 24px;
+  padding: 24px;
+}
+.UNX-range-facet {
+  background: transparent;
+  width: 100%;
+  display: flex;
+  border-color: transparent;
+}
+.UNX-facet-text,
+.UNX-facet-count {
+  pointer-events: none;
+}
+.UNX-m-facet-btn {
+  display: none;
+}
+.UNX-facet-footer {
+  display: none;
+}
+
+.UNX-price-action-row {
+  display: none;
+}
+.UNX-m-facet-row {
+  padding: 24px 0px;
+  justify-content: flex-end;
+  padding: 24px 0px;
+  display: none;
+}
+.UNX-m-selected-wrapper {
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .UNX-grid-card {
+    width: 33.3%;
+  }
+}
+@media only screen and (max-width: 980px) {
+  body {
+    background-color: #e2e2e2;
+  }
+  .UNX-grid-card {
+    width: 50%;
+  }
+  .m-facets-btn {
+    display: block;
+  }
+  .UNX-product-results {
+    display: block;
+  }
+  .UNX-product-list {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    padding: 6px;
+  }
+  .UNX-results-container {
+    width: 100%;
+    padding: 6px;
+    margin: 0;
+  }
+  .UNX-result-header {
+    display: block;
+    height: auto;
+    padding: 12px;
+  }
+  .UNX-spellcheck-block {
+    margin-top: 0px;
+  }
+  .UNX-result-right {
+    margin-top: 16px;
+  }
+  .UNX-facet-wrapper {
+    width: 100%;
+  }
+  .UNX-list-card .UNX-img-wrapper {
+    width: 40%;
+    overflow: hidden;
+  }
+  .UNX-facet-wrapper {
+    padding-bottom: 24px;
+    padding-top: 24px;
+    box-shadow: 0px 1px 3px #00000052;
+    position: relative;
+  }
+  .UNX-result-right {
+    clear: both;
+  }
+  .UNX-product-type-block {
+    display: none;
+  }
+  .UNX-img-block {
+    max-width: initial;
+    width: 125px;
+  }
+  .UNX-logo {
+    margin-right: 20px;
+  }
+  .UNX-fxd-facet {
+    width: 100%;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    margin: 0;
+    overflow-y: auto;
+    background: #ffffff;
+    z-index: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0px 12px;
+  }
+  .UNX-result-right .UNX-change-pagination-wrap {
+    display: none;
+  }
+  .UNX-change-pagination-wrap.UNX-m-pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .UNX-selected-facet-wrapper {
+    display: none;
+  }
+  .UNX-change-products {
+    padding-left: 0;
+  }
+  .UNX-input-wrapper {
+    width: 60%;
+  }
+  .UNX-head-wrapper {
+    margin: 0;
+    width: 100%;
+  }
+  .UNX-m-facet-btn {
+    position: fixed;
+    bottom: 64px;
+    right: 32px;
+    padding: 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ffffff;
+    border: solid 1px #f3f3f3;
+    box-shadow: 0px 1px 4px #0000005c;
+    font-size: 20px;
+    display: block;
+    z-index: 10;
+  }
+  .UNX-show-facets {
+    height: 100%;
+    overflow: auto;
+    z-index: 11;
+  }
+  .UNX-facet-footer {
+    display: none;
+  }
+  .UNX-fxd-facet .UNX-m-facet-row {
+    margin: 24px 0px;
+  }
+  .UNX-m-facet-row .UNX-facet-trigger {
+    margin-right: 12px;
+  }
+  .UNX-price-action-row {
+    display: none;
+  }
+  .UNX-change-pagination-wrap {
+    padding-left: 0px;
+    margin: 24px 0px;
+  }
+  .UNX-page-no-block {
+    max-width: 100%;
+  }
+  .UNX-m-facet-row {
+    display: block;
+  }
+  .UNX-m-selected-wrapper {
+    display: block;
+  }
+  .UNX-m-selected-wrapper .UNX-facets-selections {
+    display: block;
+  }
+  .UNX-m-selected-wrapper .UNX-selected-facets-inner {
+    display: table;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .UNX-m-selected-wrapper .UNX-selected-facets-wrap {
+    display: flex;
+    width: auto;
+    float: left;
+  }
+  .UNX-facet-wrapper {
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+}
+
+
+/*Magento specific*/
+
+@media only screen and (max-width: 980px){
+.UNX-results-container,.UNX-product-list {
+  box-sizing: border-box;
+}
+}
+
+.page-products .columns {
+  z-index: 20;
+  padding-top: 10px;
+}
+
+
+.UNX-sale-price:before,.UNX-strike-price:before {
+    content: '$';
+}

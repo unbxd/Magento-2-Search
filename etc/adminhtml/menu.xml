@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2020 Unbxd Inc.
+ */
+-->
+
+<!--
+/**
+ * Init development:
+ * @author andy
+ * @email andyworkbase@gmail.com
+ * @team MageCloud
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Unbxd_SearchJs::searchConfig"
+             title="Product Config"
+             translate="title"
+             module="Unbxd_SearchJs"
+             sortOrder="20"
+             dependsOnModule="Unbxd_SearchJs"
+             parent="Unbxd_ProductFeed::productfeed"
+             action="adminhtml/system_config/edit/section/unbxd_search_config"
+             resource="Unbxd_SearchJs::config_unbxd_searchjs"/>
+        
+    </menu>
+</config>

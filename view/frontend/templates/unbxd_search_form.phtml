@@ -1,0 +1,47 @@
+<?php
+/** @var \Unbxd\SearchJs\Block\Unbxd $block */
+
+$config = $block->getUnbxdConfigHelper();
+
+$catalogSearchHelper = $block->getCatalogSearchHelper();
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+$placeholder = __('Search for products, categories, ...');
+?>
+<div class="block block-search">
+    <div class="block block-title"><strong><?=$block->escapeHtml(__('Search'))?></strong></div>
+    <div class="block block-content">
+        <form class="form minisearch unbxd-search-form-js" id="search_mini_form" action="<?=$block->escapeUrl($helper->getResultUrl())?>" method="get">
+            <div class="field search">
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span><?=$block->escapeHtml(__('Search'))?></span>
+                </label>
+                <div class="control">
+                    <input id="search"
+                           type="text"
+                           name="<?=$block->escapeHtmlAttr($helper->getQueryParamName())?>"
+                           value="<?=$block->escapeHtmlAttr($helper->getEscapedQueryText())?>"
+                           placeholder="<?=$block->escapeHtmlAttr(__('Search entire store here...'))?>"
+                           class="input-text"
+                           maxlength="<?=$block->escapeHtmlAttr($helper->getMaxQueryLength())?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"
+                           aria-expanded="false"
+                           unbxdattr="sq"/>
+                    <?=$block->getChildHtml()?>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                    title="<?=$block->escapeHtmlAttr(__('Search'))?>"
+                    class="action search" id="unbxd_search_btn"
+                    aria-label="Search" unbxdattr="sq_bt"
+                >
+                    <span><?=$block->escapeHtml(__('Search'))?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

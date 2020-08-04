@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-wrapper">
+            <block class="Unbxd\SearchJs\Block\Unbxd" name="top.search" as="topSearch" template="Unbxd_SearchJs::unbxd_search_form.phtml" />
+        </referenceContainer>
+    </body>
+</page>

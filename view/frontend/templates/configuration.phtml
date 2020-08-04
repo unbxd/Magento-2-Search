@@ -1,0 +1,146 @@
+<?php
+
+/** @var \Unbxd\SearchJs\Block\Configuration $block */
+
+$autoSuggestEnabled = $block->isAutoSuggestEnabled();
+$configuration = $block->getConfiguration();
+?>
+<script type="text/javascript">
+ UnbxdSiteName="<?php echo $configuration["credentials"]["siteName"]; ?>";
+ UnbxdApiKey="<?php echo $configuration["credentials"]["apiKey"]; ?>";
+ window.unbxdMagentoConfig = <?php /* @noEscape */echo json_encode($configuration); ?>;
+</script>
+
+
+<?php
+/** Unbxd Analytics section */
+$analyticsEnabled = $block->isAnalyticsEnabled();
+if ($analyticsEnabled): ?>
+<script type="text/javascript">
+
+    UnbxdAnalyticsConf = window.UnbxdAnalyticsConf || {};
+
+    var jsfiles = <?php echo '["//d21gpk1vhmjuf5.cloudfront.net/unbxdAnalytics.js","' . $configuration["analytics"]["jsUrl"] . '"]' ?>;
+		        var file;
+              for (file in jsfiles) {
+                    var s1 = document.createElement('script');
+                    s1.type = 'text/javascript';
+                    s1.async = true;
+                    s1.src = jsfiles[file];
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
+
+              }
+
+</script>
+<?php endif;?>
+
+<?php /** Unbxd Autosuggest section */
+if ($autoSuggestEnabled): ?>
+<script type="text/javascript">
+
+require(
+            [
+                'jquery',
+                'handlebars'
+            ],
+            function (
+                jQueryMain,
+                HandlebarsMain
+            ) {
+                window.Handlebars=HandlebarsMain;
+                var jsfiles = <?php echo '["https://libraries.unbxdapi.com/unbxdAutosuggest_v2.js","' . $configuration["autoSuggest"]["jsUrl"] . '"]' ?>;
+		        var file;
+              for (file in jsfiles) {
+                    var s1 = document.createElement('script');
+                    s1.type = 'text/javascript';
+
+                    s1.src = jsfiles[file];
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
+
+                }
+                var asDiv = document.createElement('div');
+                asDiv.id="search_bar_container";
+                (document.getElementsByTagName('body')[0]).appendChild(asDiv);
+                var ubx = document.createElement('link'); ubx.rel = 'stylesheet';
+                ubx.href = "<?php echo $configuration["autoSuggest"]["cssUrl"]; ?>";
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+                jQueryMain(document).ready(function(){
+                window.magento_unbxd_asconfig=<?php echo $block->getAutoSuggestConfig(); ?>;
+                });
+
+            }
+        );
+
+</script>
+<?php endif;?>
+
+
+
+<?php /** Unbxd Search/Browse section */
+$isSearchenabled = $block->isSearchEnabled();
+$isCategoryenabled = $block->isCategoryEnabled();
+if ($isSearchenabled || $isCategoryenabled): ?>
+<script type="text/javascript">
+const checkMobile = () => {
+    const w = window.innerWidth;
+    if (w < 980) {
+      return true;
+    }
+    return false;
+  };
+  
+const getGridCount = function() {
+  const w = window.innerWidth;
+  if (w > 1200) {
+    return 4;
+  }
+  if (w < 1200 && w >= 980) {
+    return 3;
+  }
+  if (w < 980) {
+    return 2;
+  }
+};
+const getView = () => {
+  const w = window.innerWidth;
+  if (w < 980) {
+    return "LIST";
+  }
+  return "GRID";
+};
+</script>
+<script type="text/javascript">
+require(
+            [
+                'jquery',
+                'handlebars'
+            ],
+            function (
+                jQueryMain,
+                HandlebarsMain,
+            ) {
+                window.Handlebars=HandlebarsMain;
+                var jsfiles = <?php echo '["' . $configuration["search"]["jsUrl"] . '"]' ?>;
+		        var file;
+              for (file in jsfiles) {
+                    var s1 = document.createElement('script');
+                    s1.type = 'text/javascript';
+
+                    s1.src = jsfiles[file];
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
+
+                }
+                var ubx = document.createElement('link'); ubx.rel = 'stylesheet';
+                ubx.href = "<?php echo $configuration["search"]["cssUrl"]; ?>";
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
+                jQueryMain(document).ready(function(){
+                    window.magento_unbxd_listingconfig=<?php echo ($isCategoryenabled ? $block -> getCategoryConfig() : $block->getSearchConfig()); ?>;
+                });
+            }
+        );
+
+</script>
+<?php endif;?>
+
+
+

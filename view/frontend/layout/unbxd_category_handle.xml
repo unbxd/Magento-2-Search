@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+		<css src="UnbxdExtension::css/category.css"/>
+	</head>
+    <body>
+
+        <referenceContainer name="content">
+            <referenceBlock name="category.products" remove="true" />
+        </referenceContainer>
+        <referenceContainer name="main">
+            <block class="Unbxd\SearchJs\Block\Category\ProductResult" before="-" name="unbxd.category.wrapper" template="Unbxd_SearchJs::category/productresults.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main" remove="true" />
+        <referenceContainer name="sidebar.additional" remove="true" />
+        <referenceBlock name="catalog.leftnav" remove="true"/>
+    </body>
+</page>

@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="unbxd" sortOrder="999" translate="label">
+			<label>unbxd</label>
+		</tab>
+		<section id="unbxd_search_config" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
+			<label>Product Config</label>
+			<tab>unbxd</tab>
+			<resource>Unbxd_SearchJs::config_unbxd_searchjs</resource>
+			<group id="autosuggest" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Autosuggest</label>
+				<fieldset_css>unbxd-fieldset</fieldset_css>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="12" translate="label" type="select">
+					<label>ENABLE</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="config_object" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="14" translate="label" type="textarea">
+					<label>Js autosuggest config</label>
+					<comment><![CDATA[The configuration object to control the UI template and elements to be shown in the autosuggest component.To know more about the configuration options available <a href="https://unbxd.com/documentation/site-search/v2-search-ajax/" target="_blank">click here</a>.]]></comment>
+               </field>
+			   <field id="custom_search_template" translate="label comment" type="select" sortOrder="16" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Use Custom Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable this if your page layout does not have the top search block.]]></comment>
+                </field>
+                 <field id="search_input_selector" translate="label comment" type="text" sortOrder="18" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>CSS Selector Matching Search Input Field</label>
+                    <comment><![CDATA[The CSS selector matching the search input field. <small>Note: You may need to tweak the styling of the autosuggest component to align with your customer template.To know more <a href="https://unbxd.com/documentation/site-search/v2-search-ajax/" target="_blank">click here</a>. ]]></comment>
+                	<depends>
+                        <field id="custom_search_template">1</field>
+                    </depends>
+                </field>
+			</group>
+			<group id="search" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+				<label>Search</label>
+				<fieldset_css>unbxd-fieldset</fieldset_css>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="12" translate="label" type="select">
+					<label>ENABLE</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="config_object" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="14" translate="label" type="textarea">
+					<label>Js search config</label>
+					<comment><![CDATA[The configuration object to control the UI template and elements to be shown in the search page.To know more about the configuration options available <a href="https://unbxd.com/documentation/site-search/v2-search-ajax/" target="_blank">click here</a>.]]></comment>
+               </field>
+			</group>
+			<group id="category" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
+				<label>Category</label>
+				<fieldset_css>unbxd-fieldset</fieldset_css>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="12" translate="label" type="select">
+					<label>ENABLE</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="config_object" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="14" translate="label" type="textarea">
+					<label>Js category config</label>
+					<comment><![CDATA[The configuration object to control the UI template and elements to be shown in the browse page.To know more about the configuration options available <a href="https://unbxd.com/documentation/site-search/v2-search-ajax/" target="_blank">click here</a>.]]></comment>
+               </field>
+			</group>
+			<group id="analytics" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label">
+				<label>Analytics</label>
+				<fieldset_css>unbxd-fieldset</fieldset_css>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="12" translate="label" type="select">
+					<label>ENABLE</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+                 <field id="add_cart_btn_selector" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>CSS Selector Matching Add to cart btn</label>
+                    <comment><![CDATA[The CSS selector matching the add to cart button. ]]></comment>
+                </field>
+				<!--<field id="remove_cart_item_selector" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>CSS Selector Matching Remove Cart Item</label>
+                    <comment><![CDATA[The CSS selector matching the add to cart button. ]]></comment>
+                </field>-->
+			</group>
+		</section>
+	</system>
+</config>

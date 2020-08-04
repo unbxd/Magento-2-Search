@@ -1,0 +1,118 @@
+{
+  searchBoxSelector: document.getElementById("search"),
+  searchTrigger: "click",
+  searchButtonSelector: document.getElementById("unbxd_search_btn"),
+  searchResultsSelector: document.getElementById("searchResultsWrapper"),
+  siteKey: UnbxdSiteName,
+  apiKey: UnbxdApiKey,
+  productType:"SEARCH",
+  products:{
+      el:document.getElementById("searchResultsWrapper"),
+      productType:"SEARCH",
+      productClick: function(product,e) {
+          window.location=product.productUrl;
+      },
+      gridCount:getGridCount(),
+      productAttributes: ["title",
+        "uniqueId",
+        "price",
+        "sku",
+        "imageUrl",
+        "originalPrice",
+        "productUrl",
+      "description"],
+      attributesMap: {
+        unxTitle: "title",
+        unxImageUrl: "imageUrl",
+        unxPrice: "price",
+        unxStrikePrice: "originalPrice",
+        unxId: "uniqueId",
+        unxDescription: "description"
+      }
+  },
+  spellCheck: {
+    enabled: true,
+    el: document.getElementById("didYouMeanWrapper"),
+    template: function(query,searchObj,page){
+      var tpl = [
+        '<div class="UNX-spellcheck-block">',
+        '<p class="UNX-suggestion">Showing ',
+        page.start,
+        ' to ',
+        page.start+page.productsLn,
+        ' of ',
+        page.numberOfProducts,
+        ' styles in <strong>',
+        document.getElementById('page-title-heading').innerText,
+        '</strong>.</p></div>'
+      ].join('');
+      return tpl;
+    }
+  },
+  noResults: {
+      //noResultEl: document.getElementById("noResultWrapper"),
+      el: document.getElementById("noResultWrapper")
+  },
+  facet: {
+    facetsEl: document.getElementById("facetsWrapper"),
+    selectedFacetsEl: document.getElementById("selectedFacetWrapper"),
+    rangeFacetEl: document.getElementById("rangeFacetWrapper"),
+    multiLevelFacetEl: document.getElementById("bucketedFacetWrapper"),
+    applyMultipleFilters:checkMobile()
+  },
+  pagination: {
+    el: document.querySelectorAll(".unxPagination"),
+    type:'FIXED_PAGINATION'
+  },
+  breadcrumb: {
+    el: document.getElementById("breadcrumpContainer"),
+    enabled: false
+  },
+  pagesize: {
+    el: document.getElementById("changeNoOfProducts"),
+  },
+
+  sort: {
+    el: document.getElementById("sortWrapper"),
+    options: [
+      {
+        value: "price desc",
+        text: "Price High to Low"
+      },
+      {
+        value: "price asc",
+        text: " Price Low to High"
+      }
+    ]
+  },
+  loader :{
+      el:document.getElementById("loaderEl")
+  },
+  productView:{
+    el: document.getElementById("productViewTypeContainer"),
+    viewTypes: getView()
+  },
+  banner: {
+    el: document.getElementById("bannerContainer"),
+    count: 1
+  },
+  swatches: {
+    enabled: false,
+    attributesMap: {
+      swatchList: "color",
+      swatchImgs: "unbxd_color_mapping",
+      swatchColors: "color"
+    }
+  },
+  hashMode:false,
+  updateUrls:true,
+  variants: {
+    enabled: true,
+    count: 1,
+    groupBy: "",
+    attributes: [],
+    mapping: {
+        image_url: "v_image_url"
+    }
+}
+}

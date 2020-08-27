@@ -681,3 +681,7 @@ button.UNX-page-next {
 .UNX-sale-price:before,.UNX-strike-price:before {
     content: '$';
 }
+
+.page-main {
+  max-width: 100% !important;
+  }

@@ -1,6 +1,6 @@
 require.config({
   paths: {
-      unbxdsearch: "https://libraries.unbxdapi.com/search-sdk/v0.0.6/vanillaSearch"
+      "unbxdsearch": "https://libraries.unbxdapi.com/search-sdk/v0.0.6/vanillaSearch"
   }
 }
 );

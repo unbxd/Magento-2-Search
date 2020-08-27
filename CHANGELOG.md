@@ -1,5 +1,8 @@
-# Version 1.0.1
-## 1.0.0 - August 17, 2020
+# Version 1.0.2
+## 1.0.2 - August 18, 2020
+### Feature
+- Updated documentation links for search and autosuggest
+## 1.0.1 - August 17, 2020
 ### Feature
 - Extended support for php version 7.3.0
 

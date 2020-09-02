@@ -1,6 +1,6 @@
 require.config({
   paths: {
-      "unbxdsearch": "https://libraries.unbxdapi.com/search-sdk/v0.0.6/vanillaSearch"
+      "unbxdsearch": 'https://libraries.unbxdapi.com/search-sdk/v0.1.4/vanillaSearch'
   }
 }
 );
@@ -34,6 +34,7 @@ require(["jquery", "handlebars","unbxdsearch"], function ($, handlebars) {
     if ("UnbxdSearch" in window) {
       if ("magento_unbxd_listingconfig" in window) {
         window.unbxdSearch = new UnbxdSearch(magento_unbxd_listingconfig);
+        window.unbxdSearch.updateConfig({});
         bindEvents();
         renderIfMobile();
         if (magento_unbxd_listingconfig.productType != "SEARCH"){
@@ -130,3 +131,4 @@ require(["jquery", "handlebars","unbxdsearch"], function ($, handlebars) {
     };
   }
 });
+

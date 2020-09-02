@@ -1,4 +1,7 @@
-# Version 1.0.2
+# Version 1.0.3
+## 1.0.3 - September 02, 2020
+### Feature
+- Updated search plugin JS SDK to version 0.1.4
 ## 1.0.2 - August 18, 2020
 ### Feature
 - Updated documentation links for search and autosuggest

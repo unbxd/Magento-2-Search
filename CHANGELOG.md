@@ -1,4 +1,7 @@
-# Version 1.0.3
+# Version 1.0.4
+## 1.0.4 - September 03, 2020
+### Feature
+- Added module version notification in the console
 ## 1.0.3 - September 02, 2020
 ### Feature
 - Updated search plugin JS SDK to version 0.1.4

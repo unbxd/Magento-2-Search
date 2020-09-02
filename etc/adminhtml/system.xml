@@ -5,9 +5,12 @@
 			<label>unbxd</label>
 		</tab>
 		<section id="unbxd_search_config" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
-			<label>Product Config</label>
+			<label>Website Config</label>
 			<tab>unbxd</tab>
 			<resource>Unbxd_SearchJs::config_unbxd_searchjs</resource>
+			 <group id="productconfig_header" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <frontend_model>Unbxd\SearchJs\Block\Adminhtml\System\Config\Fieldset\SearchConfig</frontend_model>
+            </group>
 			<group id="autosuggest" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
 				<label>Autosuggest</label>
 				<fieldset_css>unbxd-fieldset</fieldset_css>

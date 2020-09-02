@@ -1,0 +1,17 @@
+<?php
+
+// @codingStandardsIgnoreFile
+
+/** @var \Unbxd\ProductFeed\Block\Adminhtml\System\Config\Fieldset\Setup $block */
+?>
+<div class="unbxd-system-config-information-container setup">
+    <div class="block header">
+        <h2>
+            <strong><?= /* @escapeNotVerified */ __('Web Integration v. %1', $block->getModuleVersion("Unbxd_SearchJs")) ?></strong>&nbsp;
+            <span><?= /* @escapeNotVerified */ __('by') ?></span>
+        </h2>
+        <a class="logo" href="<?= /* @escapeNotVerified */ $block->getUnbxdReferenceUrl()?>" target="_blank">
+            <img src="<?php echo $block->getLogoSrc() ?>" alt="<?= /* @escapeNotVerified */ __('Unbxd') ?>" />
+        </a>
+    </div>
+</div>

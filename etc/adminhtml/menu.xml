@@ -16,7 +16,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Unbxd_SearchJs::searchConfig"
-             title="Product Config"
+             title="Website Config"
              translate="title"
              module="Unbxd_SearchJs"
              sortOrder="20"

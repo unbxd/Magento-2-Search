@@ -1,10 +1,4 @@
-require.config({
-  paths: {
-      "unbxdsearch": 'https://libraries.unbxdapi.com/search-sdk/v0.1.4/vanillaSearch'
-  }
-}
-);
-require(["jquery", "handlebars","unbxdsearch"], function ($, handlebars) {
+require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,unbxdsearch) {
   $(document).ready(function () {
     initSearch();
   });

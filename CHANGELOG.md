@@ -1,4 +1,7 @@
-# Version 1.0.4
+# Version 1.0.5
+## 1.0.5 - September 04, 2020
+### Feature
+- AMD Module support
 ## 1.0.4 - September 03, 2020
 ### Feature
 - Added module version notification in the console

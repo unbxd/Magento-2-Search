@@ -1,4 +1,4 @@
-require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,unbxdsearch) {
+require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,UnbxdSearch) {
   $(document).ready(function () {
     initSearch();
   });
@@ -25,7 +25,6 @@ require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,unbxdsea
     }
 }
   function initSearch() {
-    if ("UnbxdSearch" in window) {
       if ("magento_unbxd_listingconfig" in window) {
         window.unbxdSearch = new UnbxdSearch(magento_unbxd_listingconfig);
         window.unbxdSearch.updateConfig({});
@@ -44,13 +43,6 @@ require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,unbxdsea
           );
         }
       }
-    } else {
-      if (this.counter > 5) {
-        console.error("UnbxdSearch SDK not loaded");
-      } else {
-        setTimeout(initSearch.bind({ counter: suggest_retry_count + 1 }), 200);
-      }
-    }
   }
 
   

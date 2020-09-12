@@ -12,6 +12,7 @@ $configuration = $block->getConfiguration();
 </script>
 
 
+
 <?php
 /** Unbxd Analytics section */
 $analyticsEnabled = $block->isAnalyticsEnabled();
@@ -32,6 +33,102 @@ if ($analyticsEnabled): ?>
               }
 
 </script>
+<?php endif;?>
+
+<?php /** Recommendations */
+$recommendationEnabled = $block->isRecommendationEnabled();
+if ($recommendationEnabled): ?>
+<script type="text/javascript">
+
+var jsfiles = <?php echo '["' . $configuration["recommendation"]["sdkUrl"] . '"]' ?>;
+        var file;
+          for (file in jsfiles) {
+                var s1 = document.createElement('script');
+                s1.type = 'text/javascript';
+                s1.async = true;
+                s1.src = jsfiles[file];
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
+
+          }
+require(['jquery'],function($){
+
+  $(document).ready(function(){
+      var $rexContainers = $('.unbxd-recommendation-marker-js');
+      var widgets = {};
+      if ($rexContainers.length > 0 && "unbxd_recommendation_pageInfo" in window){
+        $rexContainers.each(function(index,value){
+          widgets["widget"+(index+1)] = {
+            "name": value.id
+          }
+        });
+      var rexObj = {
+        "widgets" : widgets,
+         "userInfo": {
+                userId: u_readCookie("unbxd.userId"),
+                siteKey: UnbxdSiteName,
+                apiKey: UnbxdApiKey
+            },
+          "pageInfo":unbxd_recommendation_pageInfo,
+          itemClickHandler: function (product) {
+                window.location=product.url;
+            }
+      }
+      initRecommendation.call({counter:0});
+      }
+      function u_decodeAndParse(s) {
+            if (s.indexOf('"') === 0) {
+              // This is a quoted cookie as according to RFC2068, unescape...
+              s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+            }
+            return u_decodeCookie(s);
+          }
+          function u_decodeCookie(s) {
+            var pluses = /\+/g;
+            return decodeURIComponent(s.replace(pluses, ' '));
+          }
+
+      function u_readCookie(key) {
+            // Read
+            var cookies = document.cookie.split('; ');
+            var result;
+            for (var i = 0, l = cookies.length; i < l; i++) {
+                var parts = cookies[i].split('=');
+                var name = u_decodeAndParse(parts.shift());
+                var cookie = parts.join('=');
+                if (key && key === name) {
+                    try {
+                        result = u_decodeAndParse(cookie);
+                        break;
+                    } catch (e) {
+                        this.log(e);
+                    }
+                }
+            }
+            return result;
+        }
+
+      
+      function initRecommendation(){
+
+        if ("_unbxd_getRecommendations" in window){
+          _unbxd_getRecommendations(rexObj);
+        }else{
+          if (this.counter < 10){
+            setTimeout(initRecommendation.bind({counter:this.counter+1}), 1000);
+          }else{
+            console.log("Takes longer to load recommendations sdk");
+          }
+        }
+        
+      }
+
+  });
+
+});
+
+</script>
+
+
 <?php endif;?>
 
 <?php /** Unbxd Autosuggest section */
@@ -88,7 +185,7 @@ const checkMobile = () => {
     }
     return false;
   };
-  
+
 const getGridCount = function() {
   const w = window.innerWidth;
   if (w > 1200) {
@@ -134,7 +231,7 @@ require(
                 ubx.href = "<?php echo $configuration["search"]["cssUrl"]; ?>";
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
                 jQueryMain(document).ready(function(){
-                    window.magento_unbxd_listingconfig=<?php echo ($isCategoryenabled ? $block -> getCategoryConfig() : $block->getSearchConfig()); ?>;
+                    window.magento_unbxd_listingconfig=<?php echo ($isCategoryenabled ? $block->getCategoryConfig() : $block->getSearchConfig()); ?>;
                 });
             }
         );

@@ -26,6 +26,12 @@ class Configuration extends Unbxd implements CollectionDataSourceInterface
        return $enabled  && $this->isKeySetup();;
     }
 
+    public function isRecommendationEnabled(){
+        $enabled= $this->getUnbxdConfigHelper()->isRecommendationEnabled($this->getStoreId());
+        return $enabled  && $this->isKeySetup() && !empty($this->getUnbxdConfigHelper()->getRecommendationSdkUrl($this->getStoreId()));
+     }
+ 
+
     public function isSearchEnabled(){
         $enabled= $this->getUnbxdConfigHelper()->isSearchEnabled($this->getStoreId());;
         $config= $this->getUnbxdConfigHelper()->getSearchConfigObject($this->getStoreId());
@@ -79,6 +85,9 @@ class Configuration extends Unbxd implements CollectionDataSourceInterface
                 'cartBtnSelector' => $this->getUnbxdConfigHelper()->getAddToCartSelector(),
                 'removeCartItemSelector' => $this->getUnbxdConfigHelper()->getRemoveCartSelector(),
                 'orderConversionEntities' => $this->getLastOrderEntities()
+            ],
+            'recommendation' => [
+                'sdkUrl' => $this->getUnbxdConfigHelper()->getRecommendationSdkUrl()
             ]
         ];
 

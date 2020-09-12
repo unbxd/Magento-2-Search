@@ -22,6 +22,8 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
     const XML_PATH_SEARCH_ENABLED = 'unbxd_search_config/search/enable';
     const XML_PATH_CATEGORY_CONFIG = 'unbxd_search_config/category/config_object';
     const XML_PATH_CATEGORY_ENABLED = 'unbxd_search_config/category/enable';
+    const XML_PATH_RECOMMENDATION_ENABLED = 'unbxd_search_config/recommendation/enable';
+    const XML_PATH_RECOMMENDATION_SDK = 'unbxd_search_config/recommendation/rex_sdk_url';
 
     private $autosuggestCSSUrl;
     private $searchCSSUrl;
@@ -104,6 +106,18 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
     public function isSearchEnabled($storeId = null)
     {
         $status = $this->getConfigValue(self::XML_PATH_SEARCH_ENABLED,$storeId);
+        return ($status == 1) ? true : false;
+    }
+
+    public function getRecommendationSdkUrl($storeId = null)
+    {
+        $selector = $this->getConfigValue(self::XML_PATH_RECOMMENDATION_SDK,$storeId);
+        return ($selector) ? $selector : null;
+    }
+
+    public function isRecommendationEnabled($storeId = null)
+    {
+        $status = $this->getConfigValue(self::XML_PATH_RECOMMENDATION_ENABLED,$storeId);
         return ($status == 1) ? true : false;
     }
 

@@ -312,6 +312,9 @@
                 <add_cart_btn_selector>button.action.primary.tocart</add_cart_btn_selector>
                <!-- <remove_cart_item_selector>.action.action-delete</remove_cart_item_selector>-->
             </analytics>
+            <recommendation>
+                  <rex_sdk_url>https://d3m8huu8gvuyn3.cloudfront.net/rex_template_content/unbxd_rex_template_sdk.js</rex_sdk_url>
+            </recommendation>
         </unbxd_search_config>
     </default>
 </config>

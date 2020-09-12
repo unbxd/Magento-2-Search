@@ -70,10 +70,18 @@
                     <label>CSS Selector Matching Add to cart btn</label>
                     <comment><![CDATA[The CSS selector matching the add to cart button. ]]></comment>
                 </field>
-				<!--<field id="remove_cart_item_selector" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
-                    <label>CSS Selector Matching Remove Cart Item</label>
-                    <comment><![CDATA[The CSS selector matching the add to cart button. ]]></comment>
-                </field>-->
+			</group>
+			<group id="recommendation" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label">
+				<label>Recommendations</label>
+				<fieldset_css>unbxd-fieldset</fieldset_css>
+				<field id="enable" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="12" translate="label" type="select">
+					<label>ENABLE</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				 <field id="rex_sdk_url" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Rex SDK endpoint</label>
+                    <comment><![CDATA[The SDK Url varies by geographic location of the customer.Check with unbxd to know your cdn endpoint for sdk url. ]]></comment>
+                </field>
 			</group>
 		</section>
 	</system>

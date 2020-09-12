@@ -1,0 +1,12 @@
+<?php
+/** Unbxd Recommendation  section */
+$enabled = $block->isWidgetApplicable();
+if ($enabled): ?>
+
+<div class="unbxd-recommendation-marker-js" id="<?php echo $block->getWidgetId();?>"></div>
+<input type="hidden" name="form_key" value="<?php echo $block->getFormKey(); ?>" />
+<script>
+    window.unbxd_recommendation_pageInfo = <?php echo json_encode($block->pageInfoForWidget());?>
+</script>
+
+<?php endif;?>

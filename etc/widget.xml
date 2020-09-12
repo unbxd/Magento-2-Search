@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="unbxd_recommendation" class="Unbxd\SearchJs\Block\Recommendation\RecommendationList" is_email_compatible="true"
+            placeholder_image="Unbxd_SearchJs::images/products_list.png" ttl="86400">
+        <label translate="true">Unbxd Recommendation Products List</label>
+        <description translate="true">List of Recommended Products</description>
+        <parameters>
+             <parameter name="widget_type" xsi:type="select" visible="true" required="true" sort_order="10">
+                <label translate="true">Page Type</label>
+                <options>
+                    <option name="Home" value="HOME" selected="true">
+                        <label>Home Page</label>
+                    </option>
+                    <option name="Category" value="CATEGORY">
+                        <label>Category Page</label>
+                    </option>
+                    <option name="Product" value="PRODUCT">
+                        <label>Product Page</label>
+                    </option>
+                     <option name="Cart" value="CART">
+                        <label>Cart Page</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

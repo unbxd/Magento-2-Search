@@ -1,4 +1,9 @@
+# Version 1.0.6
 # Version 1.0.5
+## 1.0.6 - September 22, 2020
+### Feature
+- Updated JS SDk from version 0.1.8 to 0.1.9
+- Enabled recommendation widgets as plug and play feature in plugin
 ## 1.0.5 - September 04, 2020
 ### Feature
 - AMD Module support

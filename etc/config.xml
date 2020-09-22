@@ -108,7 +108,6 @@
       productClick: function(product,e) {
           window.location=product.productUrl;
       },
-      gridCount:getGridCount(),
       productAttributes: ["title",
         "uniqueId",
         "price",
@@ -215,7 +214,6 @@
       productClick: function(product,e) {
           window.location=product.productUrl;
       },
-      gridCount:getGridCount(),
       productAttributes: ["title",
         "uniqueId",
         "price",

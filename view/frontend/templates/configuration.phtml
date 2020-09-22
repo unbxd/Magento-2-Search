@@ -187,16 +187,7 @@ const checkMobile = () => {
   };
 
 const getGridCount = function() {
-  const w = window.innerWidth;
-  if (w > 1200) {
-    return 4;
-  }
-  if (w < 1200 && w >= 980) {
-    return 3;
-  }
-  if (w < 980) {
-    return 2;
-  }
+  return 1;
 };
 const getView = () => {
   const w = window.innerWidth;

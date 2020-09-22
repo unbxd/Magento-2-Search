@@ -27,11 +27,10 @@ require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,UnbxdSea
   function initSearch() {
       if ("magento_unbxd_listingconfig" in window) {
         window.unbxdSearch = new UnbxdSearch(magento_unbxd_listingconfig);
-        window.unbxdSearch.updateConfig({});
         bindEvents();
         renderIfMobile();
-        if (magento_unbxd_listingconfig.productType != "SEARCH"){
-          unbxdSearch.renderFromUrl();
+        if (magento_unbxd_listingconfig.productType && magento_unbxd_listingconfig.productType != "SEARCH"){
+          unbxdSearch.getCategoryPage();
         }
       } else {
         if (this.counter > 5) {

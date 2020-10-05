@@ -1,5 +1,7 @@
-# Version 1.0.6
-# Version 1.0.5
+# Version 1.0.7
+## 1.0.7 - October 05, 2020
+### Feature
+- Added widget type to recommendation widgets configuration
 ## 1.0.6 - September 22, 2020
 ### Feature
 - Updated JS SDk from version 0.1.8 to 0.1.9

@@ -57,8 +57,10 @@ require(['jquery'],function($){
       var widgets = {};
       if ($rexContainers.length > 0 && "unbxd_recommendation_pageInfo" in window){
         $rexContainers.each(function(index,value){
-          widgets["widget"+(index+1)] = {
+          if ($(value).data('container')){
+          widgets[$(value).data('container')] = {
             "name": value.id
+          }
           }
         });
       var rexObj = {

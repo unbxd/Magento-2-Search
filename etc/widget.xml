@@ -29,6 +29,20 @@
                     </option>
                 </options>
             </parameter>
+            <parameter name="widget_container" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Widget Container</label>
+                <options>
+                    <option name="widget1" value="widget1" selected="true">
+                        <label>Widget 1</label>
+                    </option>
+                    <option name="widget2" value="widget2">
+                        <label>Widget 2</label>
+                    </option>
+                    <option name="widget3" value="widget3">
+                        <label>Widget 3</label>
+                    </option>
+                </options>
+            </parameter>
         </parameters>
     </widget>
 </widgets>

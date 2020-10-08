@@ -41,6 +41,9 @@
                     <option name="widget3" value="widget3">
                         <label>Widget 3</label>
                     </option>
+                    <option name="widgetAll" value="widgetAll">
+                        <label>All Widgets</label>
+                    </option>
                 </options>
             </parameter>
         </parameters>

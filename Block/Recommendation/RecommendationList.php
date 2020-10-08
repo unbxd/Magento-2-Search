@@ -12,6 +12,8 @@ use Magento\Checkout\Model\Cart as CartModel;
 class RecommendationList extends Template implements BlockInterface
 {
 
+    const ALL_WIDGETS = 'widgetAll';
+
     private $registry;
     private $catalogHelper;
     private $formKey;
@@ -116,6 +118,10 @@ class RecommendationList extends Template implements BlockInterface
     public function getWidgetId(){
         $pageType = $this->getData('widget_type');
         return $pageType.'-'.$this->generateRandomString();
+    }
+
+    public function isAllWidgetsContainer() {
+        return ($this->getData('widget_container') != null && $this->getData('widget_container') == SELF::ALL_WIDGETS);
     }
 
     public function getWidgetContainer(){

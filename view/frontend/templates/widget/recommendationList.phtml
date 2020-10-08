@@ -2,11 +2,16 @@
 /** Unbxd Recommendation  section */
 $enabled = $block->isWidgetApplicable();
 if ($enabled): ?>
-
-<div class="unbxd-recommendation-marker-js" data-container="<?php echo $block->getWidgetContainer();?>" id="<?php echo $block->getWidgetId();?>"></div>
 <input type="hidden" name="form_key" value="<?php echo $block->getFormKey(); ?>" />
 <script>
     window.unbxd_recommendation_pageInfo = <?php echo json_encode($block->pageInfoForWidget());?>
 </script>
-
+<?php
+if ($block->isAllWidgetsContainer()): ?>
+    <div class="unbxd-recommendation-marker-js" data-container="widget1" id="<?php echo $block->getWidgetId();?>"></div>
+    <div class="unbxd-recommendation-marker-js" data-container="widget2" id="<?php echo $block->getWidgetId();?>"></div>
+    <div class="unbxd-recommendation-marker-js" data-container="widget3" id="<?php echo $block->getWidgetId();?>"></div>
+<?php else: ?>
+    <div class="unbxd-recommendation-marker-js" data-container="<?php echo $block->getWidgetContainer();?>" id="<?php echo $block->getWidgetId();?>"></div>
+<?php endif;?>
 <?php endif;?>

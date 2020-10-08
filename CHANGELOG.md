@@ -1,4 +1,7 @@
-# Version 1.0.7
+# Version 1.0.8
+## 1.0.8 - October 08, 2020
+### Feature
+- Added All Widgets option for recommendation widgets
 ## 1.0.7 - October 05, 2020
 ### Feature
 - Added widget type to recommendation widgets configuration

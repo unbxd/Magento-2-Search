@@ -62,8 +62,6 @@ require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,UnbxdSea
 
         //window.unbxdSearch.bindEvents();
         window.unbxdSearch.reRender();
-  
-    };
   }
 });
 

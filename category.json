@@ -1,11 +1,12 @@
 {
   "siteKey": UnbxdSiteName,
   "apiKey": UnbxdApiKey,
-  "hashMode": true,
+  "hashMode": false,
   "updateUrls": true,
   "searchTrigger": "click",
   "products": {
     "productType": "CATEGORY",
+    "el": document.getElementById("searchResultsWrapper"),
     "attributesMap": {
       "unxTitle": "title",
       "unxImageUrl": "imageUrl",

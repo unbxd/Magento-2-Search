@@ -103,6 +103,7 @@
   "searchTrigger": "click",
   "products": {
     "productType": "SEARCH",
+    "el": document.getElementById("searchResultsWrapper"),
     "attributesMap": {
       "unxTitle": "title",
       "unxImageUrl": "imageUrl",
@@ -198,6 +199,7 @@
   "searchTrigger": "click",
   "products": {
     "productType": "CATEGORY",
+    "el": document.getElementById("searchResultsWrapper"),
     "attributesMap": {
       "unxTitle": "title",
       "unxImageUrl": "imageUrl",

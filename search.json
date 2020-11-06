@@ -1,88 +1,92 @@
 {
-  searchBoxSelector: document.getElementById("search"),
-  searchTrigger: "click",
-  searchButtonSelector: document.getElementById("unbxd_search_btn"),
-  searchResultsSelector: document.getElementById("searchResultsWrapper"),
-  siteKey: UnbxdSiteName,
-  apiKey: UnbxdApiKey,
-  productMap: {
-                unxTitle: "title",
-                unxImageUrl: "imageUrl",
-                unxPrice: "price",
-                unxStrikePrice: "originalPrice",
-                unxId: "uniqueId",
-                unxDescription: "productDescription"
-            },
-  productAttributes: [
-    "title",
-    "uniqueId",
-    "price",
-    "sku",
-    "imageUrl",
-    "originalPrice",
-    "productUrl"
-  ],
-  spellCheck: {
-    enabled: true,
-    el: document.getElementById("didYouMeanWrapper")
+  "siteKey": UnbxdSiteName,
+  "apiKey": UnbxdApiKey,
+  "hashMode": true,
+  "updateUrls": true,
+  "searchTrigger": "click",
+  "products": {
+    "productType": "SEARCH",
+    "attributesMap": {
+      "unxTitle": "title",
+      "unxImageUrl": "imageUrl",
+      "unxPrice": "price",
+      "unxStrikePrice": "originalPrice",
+      "unxId": "uniqueId",
+      "unxDescription": "productDescription"
+    },
+    "productAttributes": [
+      "title",
+      "uniqueId",
+      "price",
+      "sku",
+      "imageUrl",
+      "originalPrice",
+      "productUrl"
+    ]
   },
-  noResultEl: document.getElementById("noResultWrapper"),
-  facet: {
-    facetsEl: document.getElementById("facetsWrapper"),
-    selectedFacetsEl: document.getElementById("selectedFacetWrapper"),
-    rangeFacetEl: document.getElementById("rangeFacetWrapper"),
-    multiLevelFacetEl: document.getElementById("bucketedFacetWrapper")
+  "spellCheck": {
+    "enabled": true,
+    "el": document.getElementById("didYouMeanWrapper")
   },
-  pagination: {
-    el: document.getElementById("unxPagination"),
-    type: "FIXED_PAGINATION" // INFINITE_SCROLL or CLICK_N_SCROLL or FIXED_PAGINATION
+  "noResults": {
+    "el": document.getElementById("noResultWrapper")
   },
-  breadcrumb: {
-    enabled: false,
-    el: document.getElementById("breadcrumpContainer")
+  "facet": {
+    "facetsEl": document.getElementById("facetsWrapper"),
+    "selectedFacetsEl": document.getElementById("selectedFacetWrapper")
   },
-  pagesize: {
-    enabled: false,
-    el: document.getElementById("changeNoOfProducts")
+  "pagination": {
+    "el": document.getElementById("unxPagination"),
+    "type": "FIXED_PAGINATION" // INFINITE_SCROLL or CLICK_N_SCROLL or FIXED_PAGINATION
+  },
+  "breadcrumb": {
+    "enabled": false,
+    "el": document.getElementById("breadcrumpContainer")
+  },
+  "pagesize": {
+    "enabled": true,
+    "el": document.getElementById("changeNoOfProducts")
   },
 
-  sort: {
-    el: document.getElementById("sortWrapper"),
-    options: [
+  "sort": {
+    "el": document.getElementById("sortWrapper"),
+    "options": [
       {
-        value: "price desc",
-        text: "Price High to Low"
+        "value": "price desc",
+        "text": "Price High to Low"
       },
       {
-        value: "price asc",
-        text: " Price Low to High"
+        "value": "price asc",
+        "text": " Price Low to High"
       }
     ]
   },
-  loaderEl: document.getElementById("loaderEl"),
-  productView: {
-    el: document.getElementById("productViewTypeContainer"),
-    viewTypes: "GRID"
+  "loader": {
+    "el": document.getElementById("loaderEl")
   },
-  banner: {
-    el: document.getElementById("bannerContainer"),
-    count: 1
+  "productView": {
+    "el": document.getElementById("productViewTypeContainer"),
+    "defaultViewType": "GRID"
   },
-variants: {
-              enabled: true,
-              count: 1,
-              groupBy: "",
-              attributes: [],
-              mapping: {
-                  image_url: "v_image_url"
-              }
-          },
-  swatches: {
-    enabled: false,
-    attributesMap: {
-      swatchList: "color",
-      swatchImgs: "unbxd_color_mapping",
-      swatchColors: "color"
+  "banner": {
+    "el": document.getElementById("bannerContainer"),
+    "count": 1
+  },
+  "variants": {
+    "enabled": true,
+    "count": 1,
+    "groupBy": "",
+    "attributes": [],
+    "mapping": {
+      "image_url": "v_image_url"
+    }
+  },
+  "swatches": {
+    "enabled": false,
+    "attributesMap": {
+      "swatchList": "color",
+      "swatchImgs": "unbxd_color_mapping",
+      "swatchColors": "color"
     }
   }
 }

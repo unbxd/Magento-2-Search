@@ -1,103 +1,92 @@
 {
-  searchBoxSelector: document.getElementById("search"),
-  searchTrigger: "click",
-  searchButtonSelector: document.getElementById("unbxd_search_btn"),
-  searchResultsSelector: document.getElementById("searchResultsWrapper"),
-  siteKey: UnbxdSiteName,
-  apiKey: UnbxdApiKey,
-  productType:"CATEGORY",
-  products:{
-      el:document.getElementById("searchResultsWrapper"),
-      productType:"CATEGORY",
-      productClick: function(product,e) {
-          window.location=product.productUrl;
-      },
-      gridCount:getGridCount(),
-      productAttributes: ["title",
-        "uniqueId",
-        "price",
-        "sku",
-        "imageUrl",
-        "originalPrice",
-        "productUrl",
-      "description"],
-      attributesMap: {
-        unxTitle: "title",
-        unxImageUrl: "imageUrl",
-        unxPrice: "price",
-        unxStrikePrice: "originalPrice",
-        unxId: "uniqueId",
-        unxDescription: "description"
-      }
+  "siteKey": UnbxdSiteName,
+  "apiKey": UnbxdApiKey,
+  "hashMode": true,
+  "updateUrls": true,
+  "searchTrigger": "click",
+  "products": {
+    "productType": "CATEGORY",
+    "attributesMap": {
+      "unxTitle": "title",
+      "unxImageUrl": "imageUrl",
+      "unxPrice": "price",
+      "unxStrikePrice": "originalPrice",
+      "unxId": "uniqueId",
+      "unxDescription": "productDescription"
+    },
+    "productAttributes": [
+      "title",
+      "uniqueId",
+      "price",
+      "sku",
+      "imageUrl",
+      "originalPrice",
+      "productUrl"
+    ]
   },
-  spellCheck: {
-    enabled: true,
-    el: document.getElementById("didYouMeanWrapper")
+  "spellCheck": {
+    "enabled": true,
+    "el": document.getElementById("didYouMeanWrapper")
   },
-  noResults: {
-      //noResultEl: document.getElementById("noResultWrapper"),
-      el: document.getElementById("noResultWrapper")
+  "noResults": {
+    "el": document.getElementById("noResultWrapper")
   },
-  facet: {
-    facetsEl: document.getElementById("facetsWrapper"),
-    selectedFacetsEl: document.getElementById("selectedFacetWrapper"),
-    rangeFacetEl: document.getElementById("rangeFacetWrapper"),
-    multiLevelFacetEl: document.getElementById("bucketedFacetWrapper"),
-    applyMultipleFilters:checkMobile()
+  "facet": {
+    "facetsEl": document.getElementById("facetsWrapper"),
+    "selectedFacetsEl": document.getElementById("selectedFacetWrapper")
   },
-  pagination: {
-    el: document.querySelectorAll(".unxPagination"),
-    type:'FIXED_PAGINATION'
+  "pagination": {
+    "el": document.getElementById("unxPagination"),
+    "type": "FIXED_PAGINATION" // INFINITE_SCROLL or CLICK_N_SCROLL or FIXED_PAGINATION
   },
-  breadcrumb: {
-    el: document.getElementById("breadcrumpContainer"),
-    enabled: false
+  "breadcrumb": {
+    "enabled": false,
+    "el": document.getElementById("breadcrumpContainer")
   },
-  pagesize: {
-    el: document.getElementById("changeNoOfProducts")
+  "pagesize": {
+    "enabled": true,
+    "el": document.getElementById("changeNoOfProducts")
   },
 
-  sort: {
-    el: document.getElementById("sortWrapper"),
-    options: [
+  "sort": {
+    "el": document.getElementById("sortWrapper"),
+    "options": [
       {
-        value: "price desc",
-        text: "Price High to Low"
+        "value": "price desc",
+        "text": "Price High to Low"
       },
       {
-        value: "price asc",
-        text: " Price Low to High"
+        "value": "price asc",
+        "text": " Price Low to High"
       }
     ]
   },
-  loader :{
-      el:document.getElementById("loaderEl")
+  "loader": {
+    "el": document.getElementById("loaderEl")
   },
-  productView:{
-    el: document.getElementById("productViewTypeContainer"),
-    viewTypes: getView()
+  "productView": {
+    "el": document.getElementById("productViewTypeContainer"),
+    "defaultViewType": "GRID"
   },
-  banner: {
-    el: document.getElementById("bannerContainer"),
-    count: 1
+  "banner": {
+    "el": document.getElementById("bannerContainer"),
+    "count": 1
   },
-  swatches: {
-    enabled: false,
-    attributesMap: {
-      swatchList: "color",
-      swatchImgs: "unbxd_color_mapping",
-      swatchColors: "color"
+  "variants": {
+    "enabled": true,
+    "count": 1,
+    "groupBy": "",
+    "attributes": [],
+    "mapping": {
+      "image_url": "v_image_url"
     }
   },
-  hashMode:false,
-  updateUrls:true,
-  variants: {
-    enabled: true,
-    count: 1,
-    groupBy: "",
-    attributes: [],
-    mapping: {
-        image_url: "v_image_url"
+  "swatches": {
+    "enabled": false,
+    "attributesMap": {
+      "swatchList": "color",
+      "swatchImgs": "unbxd_color_mapping",
+      "swatchColors": "color"
     }
-}
+  }
 }

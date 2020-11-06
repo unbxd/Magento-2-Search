@@ -1,4 +1,7 @@
-# Version 1.0.8
+# Version 1.0.9
+## 1.0.9 - November 05, 2020
+### Feature
+- Search SDK updated from v0.1.9 tp v2.0.0
 ## 1.0.8 - October 08, 2020
 ### Feature
 - Added All Widgets option for recommendation widgets

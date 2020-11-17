@@ -1,4 +1,7 @@
-# Version 1.0.9
+# Version 1.0.10
+## 1.0.10 - November 17, 2020
+### Feature
+- Label change from rex to recs
 ## 1.0.9 - November 05, 2020
 ### Feature
 - Search SDK updated from v0.1.9 tp v2.0.0

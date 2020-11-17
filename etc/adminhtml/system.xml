@@ -79,7 +79,7 @@
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 				 <field id="rex_sdk_url" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
-                    <label>Rex SDK endpoint</label>
+                    <label>Recs SDK endpoint</label>
                     <comment><![CDATA[The SDK Url varies by geographic location of the customer.Check with unbxd to know your cdn endpoint for sdk url. ]]></comment>
                 </field>
 			</group>

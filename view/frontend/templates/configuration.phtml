@@ -147,7 +147,7 @@ require(
                 HandlebarsMain
             ) {
                 window.Handlebars=HandlebarsMain;
-                var jsfiles = <?php echo '["https://libraries.unbxdapi.com/unbxdAutosuggest_v2.js","' . $configuration["autoSuggest"]["jsUrl"] . '"]' ?>;
+                var jsfiles = <?php echo '["https://libraries.unbxdapi.com/unbxdAutosuggest_v1.js","' . $configuration["autoSuggest"]["jsUrl"] . '"]' ?>;
 		        var file;
               for (file in jsfiles) {
                     var s1 = document.createElement('script');

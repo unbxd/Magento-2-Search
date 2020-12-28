@@ -101,9 +101,13 @@
   "hashMode": false,
   "updateUrls": true,
   "searchTrigger": "click",
+  
   "products": {
     "productType": "SEARCH",
     "el": document.getElementById("searchResultsWrapper"),
+    "productClick": function(product,e) {
+          window.location=product.productUrl;
+    },
     "attributesMap": {
       "unxTitle": "title",
       "unxImageUrl": "imageUrl",
@@ -134,7 +138,7 @@
     "selectedFacetsEl": document.getElementById("selectedFacetWrapper")
   },
   "pagination": {
-    "el": document.getElementById("unxPagination"),
+    "el": document.querySelectorAll(".unxPagination"),
     "type": "FIXED_PAGINATION" // INFINITE_SCROLL or CLICK_N_SCROLL or FIXED_PAGINATION
   },
   "breadcrumb": {
@@ -200,6 +204,9 @@
   "products": {
     "productType": "CATEGORY",
     "el": document.getElementById("searchResultsWrapper"),
+    "productClick": function(product,e) {
+          window.location=product.productUrl;
+    },
     "attributesMap": {
       "unxTitle": "title",
       "unxImageUrl": "imageUrl",
@@ -207,6 +214,7 @@
       "unxStrikePrice": "originalPrice",
       "unxId": "uniqueId",
       "unxDescription": "productDescription"
+
     },
     "productAttributes": [
       "title",
@@ -230,7 +238,7 @@
     "selectedFacetsEl": document.getElementById("selectedFacetWrapper")
   },
   "pagination": {
-    "el": document.getElementById("unxPagination"),
+    "el": document.querySelectorAll(".unxPagination"),
     "type": "FIXED_PAGINATION" // INFINITE_SCROLL or CLICK_N_SCROLL or FIXED_PAGINATION
   },
   "breadcrumb": {

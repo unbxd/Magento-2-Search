@@ -1,4 +1,8 @@
-# Version 1.0.10
+# Version 1.0.11
+## 1.0.11 - December 28, 2020
+### Feature
+- Updated autosuggest versioning
+- Incorporated support for mobile specific layout
 ## 1.0.10 - November 17, 2020
 ### Feature
 - Label change from rex to recs

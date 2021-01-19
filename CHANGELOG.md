@@ -1,4 +1,7 @@
-# Version 1.0.11
+# Version 1.0.12
+## 1.0.12 - January 19, 2020
+### Feature
+- Upgraded search sdk version from 2.0.0 to 2.0.1
 ## 1.0.11 - December 28, 2020
 ### Feature
 - Updated autosuggest versioning

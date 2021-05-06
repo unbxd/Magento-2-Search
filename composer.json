@@ -2,13 +2,13 @@
   "name": "unbxd/magento2-search-js",
   "description": "The Magento 2 module, which provides possibility enable unbxd search, autosuggest , analytics and browse features",
   "type": "magento2-module",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
   ],
   "require": {
-    "unbxd/magento2-product-feed": ">1.0.67",
+    "unbxd/magento2-product-feed": ">1.0.79",
     "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0|~7.4.0"
   },
   "autoload": {

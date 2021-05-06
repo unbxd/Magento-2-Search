@@ -1,4 +1,7 @@
-# Version 1.0.12
+# Version 1.0.13
+## 1.0.13 - May 06, 2020
+### Feature
+- Refactored ACL resource grouping
 ## 1.0.12 - January 19, 2020
 ### Feature
 - Upgraded search sdk version from 2.0.0 to 2.0.1

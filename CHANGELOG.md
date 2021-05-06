@@ -1,4 +1,7 @@
-# Version 1.0.13
+# Version 1.0.14
+## 1.0.14 - May 06, 2020
+### Feature
+- Refactored the scripts to avoid embedding junk urls
 ## 1.0.13 - May 06, 2020
 ### Feature
 - Refactored ACL resource grouping

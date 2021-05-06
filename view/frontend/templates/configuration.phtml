@@ -22,15 +22,15 @@ if ($analyticsEnabled): ?>
     UnbxdAnalyticsConf = window.UnbxdAnalyticsConf || {};
 
     var jsfiles = <?php echo '["//d21gpk1vhmjuf5.cloudfront.net/unbxdAnalytics.js","' . $configuration["analytics"]["jsUrl"] . '"]' ?>;
-		        var file;
-              for (file in jsfiles) {
+		        
+            jsfiles.forEach(function(file,index) {
                     var s1 = document.createElement('script');
                     s1.type = 'text/javascript';
                     s1.async = true;
-                    s1.src = jsfiles[file];
+                    s1.src = file;
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
 
-              }
+              });
 
 </script>
 <?php endif;?>
@@ -41,15 +41,15 @@ if ($recommendationEnabled): ?>
 <script type="text/javascript">
 
 var jsfiles = <?php echo '["' . $configuration["recommendation"]["sdkUrl"] . '"]' ?>;
-        var file;
-          for (file in jsfiles) {
+        
+        jsfiles.forEach(function(file,index) {
                 var s1 = document.createElement('script');
                 s1.type = 'text/javascript';
                 s1.async = true;
-                s1.src = jsfiles[file];
+                s1.src = file;
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
 
-          }
+          });
 require(['jquery'],function($){
 
   $(document).ready(function(){
@@ -148,15 +148,14 @@ require(
             ) {
                 window.Handlebars=HandlebarsMain;
                 var jsfiles = <?php echo '["https://libraries.unbxdapi.com/unbxdAutosuggest_v1.js","' . $configuration["autoSuggest"]["jsUrl"] . '"]' ?>;
-		        var file;
-              for (file in jsfiles) {
+            jsfiles.forEach(function(file,index) {
                     var s1 = document.createElement('script');
                     s1.type = 'text/javascript';
 
-                    s1.src = jsfiles[file];
+                    s1.src = file;
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
 
-                }
+                });
                 var asDiv = document.createElement('div');
                 asDiv.id="search_bar_container";
                 (document.getElementsByTagName('body')[0]).appendChild(asDiv);
@@ -211,15 +210,15 @@ require(
             ) {
                 window.Handlebars=HandlebarsMain;
                 var jsfiles = <?php echo '["' . $configuration["search"]["jsUrl"] . '"]' ?>;
-		        var file;
-              for (file in jsfiles) {
+		        
+            jsfiles.forEach(function(file,index) {
                     var s1 = document.createElement('script');
                     s1.type = 'text/javascript';
 
-                    s1.src = jsfiles[file];
+                    s1.src = file;
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
 
-                }
+                });
                 var ubx = document.createElement('link'); ubx.rel = 'stylesheet';
                 ubx.href = "<?php echo $configuration["search"]["cssUrl"]; ?>";
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);

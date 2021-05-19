@@ -10,7 +10,7 @@
 ?>
 <script type="text/javascript">
 require(['jquery'], function($){
-        UnbxdAnalyticsConf = { page_type : 'CATEGORY' , page : <?php $path=""; $first=true; foreach ($categoryBreadCrumbPath as $entry) { $path = $path .(!$first ? '>' : '') .$entry['label'];$first=false;} echo '"'.$path.'"'; ?>, id : <?php echo $categoryId; ?> }
+        UnbxdAnalyticsConf = { page_type : 'BOOLEAN' , page : <?php $path=""; $first=true; foreach ($categoryBreadCrumbPath as $entry) { $path = $path .(!$first ? '>' : '') .$entry['label'];$first=false;} echo '"categoryPath:\"'.$path.'\""'; ?>, id : <?php echo $categoryId; ?> }
          });
 </script>
 <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />

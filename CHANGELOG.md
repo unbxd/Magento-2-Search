@@ -1,4 +1,8 @@
-# Version 1.0.14
+# Version 1.0.15
+## 1.0.15 - May 19, 2020
+### Feature
+- Updated the category page load to align with sdk v2
+- Updated the analytics data object for product view, cart action, order action
 ## 1.0.14 - May 06, 2020
 ### Feature
 - Refactored the scripts to avoid embedding junk urls

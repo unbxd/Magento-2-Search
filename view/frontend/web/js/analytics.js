@@ -36,7 +36,7 @@ require(["jquery"], function (jQuery) {
   function triggerProductViewEvent() {
     var analyticsConf = window.unbxdMagentoConfig.analytics;
     if ("productId" in analyticsConf && analyticsConf.productId) {
-        trackEvent("product_view", { pid: analyticsConf.productId });
+        trackEvent("product_view", { pid: String(analyticsConf.productId) });
     }
   }
 
@@ -52,7 +52,7 @@ require(["jquery"], function (jQuery) {
             var productId = $form.find('input[name="product"]');
             var $qtyInput = $form.find("input#qty");
             var qty = $qtyInput.length ? $qtyInput.val() : 1;
-            trackEvent("addToCart", { pid: (productId.length ?productId.val(): skuCode), qty: qty});
+            trackEvent("addToCart", { pid: String(productId.length ?productId.val(): skuCode), qty: qty.toString(),requestId: null,variantId:null});
           }
         } catch (e) {
           console.log(e);
@@ -73,7 +73,7 @@ require(["jquery"], function (jQuery) {
             var $ele = jQuery(this);
             var pid = $ele.data("id");
             if (pid) {
-                trackEvent("cartRemoval", { pid: pid });
+                trackEvent("cartRemoval", { pid: String(pid) });
             }
           } catch (e) {
             console.log(e);
@@ -92,6 +92,8 @@ require(["jquery"], function (jQuery) {
         ) {
             window.unbxdMagentoConfig.analytics.orderConversionEntities.forEach(function (item) {
                 if (item.price > 0){
+                  item.pid=String(item.pid);
+                  item.qty=String(item.qty);
                 trackEvent("order", item);
                 }else{
                     console.warn("Item with no price not posted-"+item.pid+"-"+item.qty);

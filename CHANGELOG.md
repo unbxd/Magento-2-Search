@@ -1,4 +1,7 @@
-# Version 1.0.15
+# Version 1.0.16
+## 1.0.15 - May 25, 2020
+### Feature
+- Updated with minified version of stylesheet
 ## 1.0.15 - May 19, 2020
 ### Feature
 - Updated the category page load to align with sdk v2

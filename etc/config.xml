@@ -38,8 +38,15 @@
                 showCarts: false,
                 cartType: 'separate',
                 onSimpleEnter: function onSimpleEnter() {
-                    this.input.form.submit();
-                },
+                  this.lastKeyEvent.preventDefault();
+                        if (this.input.value.trim().length > 0) {
+                          window.location =
+                            window.location.origin +
+                          "/catalogsearch/result/?q=" +
+                            encodeURIComponent(this.input.value) 
+                            ;
+                        }                
+                  },
                 onItemSelect: function onItemSelect(data,original) {
                     if (data.type === 'IN_FIELD') {
                         if (data.filtername) {

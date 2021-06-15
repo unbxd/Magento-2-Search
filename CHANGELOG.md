@@ -1,18 +1,21 @@
-# Version 1.0.16
-## 1.0.15 - May 25, 2020
+# Version 1.0.17
+## 1.0.17 - June 15, 2021
+### Feature
+- Updated the autosuggest keyword search
+## 1.0.16 - May 25, 2021
 ### Feature
 - Updated with minified version of stylesheet
-## 1.0.15 - May 19, 2020
+## 1.0.15 - May 19, 2021
 ### Feature
 - Updated the category page load to align with sdk v2
 - Updated the analytics data object for product view, cart action, order action
-## 1.0.14 - May 06, 2020
+## 1.0.14 - May 06, 2021
 ### Feature
 - Refactored the scripts to avoid embedding junk urls
-## 1.0.13 - May 06, 2020
+## 1.0.13 - May 06, 2021
 ### Feature
 - Refactored ACL resource grouping
-## 1.0.12 - January 19, 2020
+## 1.0.12 - January 19, 2021
 ### Feature
 - Upgraded search sdk version from 2.0.0 to 2.0.1
 ## 1.0.11 - December 28, 2020

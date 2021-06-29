@@ -1,4 +1,7 @@
-# Version 1.0.17
+# Version 1.0.18
+## 1.0.18 - June 29, 2021
+### Feature
+- Support for using categoryId instead of CategoryPath
 ## 1.0.17 - June 15, 2021
 ### Feature
 - Updated the autosuggest keyword search

@@ -3,8 +3,15 @@
 
 namespace Unbxd\SearchJs\Block\Category;
 
+use Unbxd\ProductFeed\Helper\Data as UnbxdProductHelper;
+
 class ProductResult extends \Magento\Framework\View\Element\Template
 {
+
+    /**
+     * @var UnbxdProductHelper
+     */
+    private $unbxdProductHelper;
     /**
      * Constructor
      *
@@ -16,11 +23,13 @@ class ProductResult extends \Magento\Framework\View\Element\Template
         \Magento\Catalog\Model\Layer\Resolver $layerResolver,
         \Magento\Framework\Registry $registry,
         \Magento\Catalog\Helper\Category $categoryHelper,
+        UnbxdProductHelper $unbxdProductHelper,
         array $data = []
     ) {
         $this->_categoryHelper = $categoryHelper;
         $this->_catalogLayer = $layerResolver->get();
         $this->_coreRegistry = $registry;
+        $this->unbxdProductHelper = $unbxdProductHelper;
         parent::__construct($context, $data);
     }
 
@@ -75,6 +84,16 @@ class ProductResult extends \Magento\Framework\View\Element\Template
             $this->setData('current_category', $this->_coreRegistry->registry('current_category'));
         }
         return $this->getData('current_category');
+    }
+
+    /**
+     * Retrieve current category model object
+     *
+     * @return \Magento\Catalog\Model\Category
+     */
+    public function useCategoryIDForBrowse()
+    {
+        return $this->unbxdProductHelper->useCategoryID($this->_storeManager->getStore());
     }
 
 }

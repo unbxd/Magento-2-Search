@@ -1,18 +1,34 @@
 <?php ?>
 
 <?php
+/** @var \Unbxd\SearchJs\Block\Category\ProductResult $block */
     $catalogHelperData = $this->helper('Magento\Catalog\Helper\Data');
     $categoryObject = $catalogHelperData->getCategory();
     $categoryBreadCrumbPath = $catalogHelperData->getBreadcrumbPath();
     $categoryId = $categoryObject->getId();
     $categoryName = $categoryObject->getName();
     $categoryPath = $categoryObject->getPath();
+    $useCategoryId = $block->useCategoryIDForBrowse();
+
+?>
+<?php
+if($useCategoryId):
 ?>
 <script type="text/javascript">
-require(['jquery'], function($){
-        UnbxdAnalyticsConf = { page_type : 'BOOLEAN' , page : <?php $path=""; $first=true; foreach ($categoryBreadCrumbPath as $entry) { $path = $path .(!$first ? '>' : '') .$entry['label'];$first=false;} echo '"categoryPath:\"'.$path.'\""'; ?>, id : <?php echo $categoryId; ?> }
-         });
+    require(['jquery'], function($){
+        UnbxdAnalyticsConf = { page_type : 'BOOLEAN' , page : <?php $path=$categoryId; echo '"categoryPath:\"'.$path.'\""'; ?>, id : <?php echo $categoryId; ?> }
+    });
 </script>
+<?php endif;?>
+<?php
+if(!$useCategoryId):
+    ?>
+    <script type="text/javascript">
+        require(['jquery'], function($){
+            UnbxdAnalyticsConf = { page_type : 'BOOLEAN' , page : <?php $path=""; $first=true; foreach ($categoryBreadCrumbPath as $entry) { $path = $path .(!$first ? '>' : '') .$entry['label'];$first=false;} echo '"categoryPath:\"'.$path.'\""'; ?>, id : <?php echo $categoryId; ?> }
+        });
+    </script>
+<?php endif;?>
 <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
 <div class="UNX-results-container">
       <div class="UNX-head-wrapper">

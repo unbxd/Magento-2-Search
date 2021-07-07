@@ -1,4 +1,7 @@
-# Version 1.0.18
+# Version 1.0.19
+## 1.0.19 - July 7, 2021
+### Feature
+- Support for sdk 2.0.3
 ## 1.0.18 - June 29, 2021
 ### Feature
 - Support for using categoryId instead of CategoryPath

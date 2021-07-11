@@ -1,4 +1,7 @@
-# Version 1.0.19
+# Version 1.0.20
+## 1.0.20 - July 11, 2021
+### Feature
+- Added style changes
 ## 1.0.19 - July 7, 2021
 ### Feature
 - Support for sdk 2.0.3

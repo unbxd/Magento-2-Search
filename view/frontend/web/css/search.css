@@ -19,3 +19,11 @@
 .page-main {
   max-width: 100% !important;
   }
+
+  .UNX-searchable-facets:before {
+    font-family: 'FontAwesome';
+  }
+
+  .UNX-grid-card{
+    cursor: pointer;
+  }

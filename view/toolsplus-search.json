@@ -1,0 +1,527 @@
+{
+	searchBoxSelector: document.getElementById("search"),
+	searchTrigger: "click",
+	searchButtonSelector: document.getElementById("unbxd_search_btn"),
+	searchResultsSelector: document.getElementById("searchResultsWrapper"),
+	siteKey: UnbxdSiteName,
+	apiKey: UnbxdApiKey,
+
+	products:{
+		el:document.getElementById("searchResultsWrapper"),
+		productType:"SEARCH",
+		productClick: function(product,e) {
+			const { id, action, uniqueid } = e.target.dataset;
+			if (action == "addtocart") {
+				console.log("add to cart");
+			}else{
+				window.location=product.productUrl;
+			}
+		},
+		productItemClass: "unbxd-search-product",
+		productAttributes: [
+			"title",
+			"uniqueId",
+			"price",
+			"sku",
+			"imageUrl",
+			"originalPrice",
+			"productUrl",
+			"description",
+			"mapPrice",
+			"productUrl",
+			"*"
+		],
+		attributesMap: {
+		    unxTitle: "title",
+		    unxImageUrl: "imageUrl",
+		    unxPrice: "price",
+		    unxStrikePrice: "originalPrice",
+		    unxId: "uniqueId",
+		    unxDescription: "description",
+		    unxHighlights1: "highlights1",
+		    unxHighlights2: "highlights2",
+		    unxHighlights3: "highlights3",
+		    unxproductUrl: "productUrl"
+		},
+	
+		template: function (product, idx, swatchUI, productViewType) {
+			const {
+				unxTitle,
+				unxImageUrl,
+				uniqueId,
+				unxStrikePrice,
+				unxPrice,
+				unxDescription,
+				unxHighlights1,
+				unxHighlights2,
+				unxHighlights3,
+				unxproductUrl
+			} = product;
+
+			var formKey = jQuery.cookie('form_key');
+		
+			const { products } = this.options;
+			const { productItemClass } = products;
+			
+			const imgUrl = Array.isArray(unxImageUrl) ? unxImageUrl[0] : unxImageUrl;
+
+			var title = unxTitle;
+
+			if (unxTitle.length > 55) {
+				title = unxTitle.substr(0,56) +"...";
+			}
+
+			var highlights = "";
+			if (product.highlights1) {
+				var highlights1 = product.highlights1;
+				if (product.highlights1.length > 55) {
+					highlights1 = product.highlights1.substr(0,56) +"...";
+					highlights = highlights+'<div class="product-highlight"><a href="'+unxproductUrl+'" class="highlight-one">'+highlights1+'</a></div>';
+				}else{
+					highlights = highlights+'<div class="product-highlight"><a href="'+unxproductUrl+'" class="highlight-one">'+highlights1+'</a></div>';
+				}
+			}
+
+			if (product.highlights2) {
+				var highlights2 = product.highlights2;
+				if (product.highlights2.length > 55) {
+					highlights2 = product.highlights2.substr(0,56) +"...";
+					highlights = highlights+'<div class="product-highlight"><a href="'+unxproductUrl+'" class="highlight-two">'+highlights2+'</a></div>';
+				}else{
+					highlights = highlights+'<div class="product-highlight"><a href="'+unxproductUrl+'" class="highlight-two">'+highlights2+'</a></div>';
+				}
+			}
+
+			if (product.highlights3) {
+				var highlights3 = product.highlights3;
+				if (product.highlights3.length > 55) {
+					highlights3 = product.highlights3.substr(0,56) +"...";
+					highlights = highlights+'<div class="product-highlight"><a href="'+unxproductUrl+'" class="highlight-three">'+highlights3+'</a></div>';
+				}else{
+					highlights = highlights+'<div class="product-highlight"><a href="'+unxproductUrl+'" class="highlight-three">'+highlights3+'</a></div>';
+				}
+			}
+
+			var label = "";
+			var buttonHtml = "";
+			var priceHtml = "";
+
+			if (!product.minTierPrice && product.mapPrice && product.availability && product.mapPrice > product.price) {
+		    	label = '<div class="custom-price-lable"><p>see price in cart</p></div>';
+				priceHtml = '<div class="mapp-available"><div class="priceDiv"><div class="mapp-non-available"><div class="price-box price-final_price" data-role="priceBox" data-product-id="'+product.entityId+'" data-price-box="product-id-'+product.entityId+'"><span class="price-container price-final_price tax weee rewards_earn"><span id="product-price-" data-price-amount="'+product.price.toFixed(2)+'" data-price-type="finalPrice" class="price-wrapper "><span class="price">$'+product.price.toFixed(2)+'</span></span></div></div></div></div>'
+				buttonHtml = '<button type="submit" title="Add to Cart" class="action tocart primary"><span>Add to Cart</span></button>';
+		    }else if (!product.minTierPrice && product.mapPrice && product.availability && product.mapPrice == product.price) {
+				priceHtml = '<div class="mapp-available out-of-stock"><div class="priceDiv"><div class="mapp-non-available"><div class="price-box price-final_price" data-role="priceBox" data-product-id="'+product.entityId+'" data-price-box="product-id-'+product.entityId+'"><span class="price-container price-final_price tax weee rewards_earn"><span id="product-price-" data-price-amount="$'+product.price.toFixed(2)+'" data-price-type="finalPrice" class="price-wrapper "><span class="price">$'+product.price.toFixed(2)+'</span></span></span></div></div></div></div>';
+				buttonHtml = '<button type="submit" title="Add to Cart" class="action tocart primary"><span>Add to Cart</span></button>';
+		    }else if(product.minTierPrice && !product.mapPrice && product.availability){
+		    	label = '<div class="custom-price-lable"><p>as low as $'+product.minTierPrice+'</p></div>';
+				priceHtml = '<div class="mapp-available tier-price"><div class="priceDiv"><div class="mapp-non-available"><div class="price-box price-final_price" data-role="priceBox" data-product-id="'+product.entityId+'" data-price-box="product-id-'+product.entityId+'"><span class="price-container price-final_price tax weee rewards_earn"><span id="product-price-" data-price-amount="'+product.price.toFixed(2)+'" data-price-type="finalPrice" class="price-wrapper "><span class="price">$'+product.price.toFixed(2)+'</span></span></span></div></div></div></div>';
+				buttonHtml = '<a class="action tocart to-product primary" href="'+unxproductUrl+'">GO TO ITEM</a>';
+		    }else if(product.minTierPrice && product.mapPrice && product.availability){
+		    	label = '<div class="custom-price-lable"><p>bulk pricing available</p></div>';
+				priceHtml = '<div class="mapp-available"><div class="priceDiv"><div class="mapp-non-available"><div class="price-box price-final_price" data-role="priceBox" data-product-id="'+product.entityId+'" data-price-box="product-id-'+product.entityId+'"><span class="price-container price-final_price tax weee rewards_earn"><span id="product-price-" data-price-amount="'+unxPrice+'" data-price-type="finalPrice" class="price-wrapper "><span class="price">$'+product.price.toFixed(2)+'</span></span></span></div></div></div></div>';
+				buttonHtml = '<a class="action tocart to-product primary" href="'+unxproductUrl+'">GO TO ITEM</a>';
+		    }else if(!product.availability){
+		    	priceHtml = '<div class="mapp-available out-of-stock"><div class="priceDiv"><div class="mapp-non-available"><div class="price-box price-final_price" data-role="priceBox" data-product-id="'+product.entityId+'" data-price-box="product-id-'+product.entityId+'"><span class="price-container price-final_price tax weee rewards_earn"><span id="product-price-" data-price-amount="'+product.price.toFixed(2)+'" data-price-type="finalPrice" class="price-wrapper "><span class="price">$'+product.price.toFixed(2)+'</span></span></span></div></div></div></div>';
+		    	
+				return[
+					'<div class="product-item">',
+						'<div class="product-item-info" data-container="product-grid">',
+							'<div class="productImgDiv">',
+							  	'<a href="'+unxproductUrl+'" class="product photo product-item-photo" tabindex="-1">',
+							    	'<span class="product-image-container" style="width:240px;">',
+							      		'<span class="product-image-wrapper" style="padding-bottom: 125%;">',
+							    		'<img class="product-image-photo" src="'+imgUrl+'">',
+							      	'</span>',
+							    	'</span>',
+								'</a>',
+							    ''+label+'',
+							'</div>',
+							'<div class="product details product-item-details">',
+								'<strong class="product name product-item-name">',
+							    	'<a class="product-item-link" title="'+unxTitle+'" href="'+unxproductUrl+'">'+title+'</a>',
+								'</strong>',
+								'<div class="productDetail">',
+									''+priceHtml+'',
+								'</div>',
+								'<div class="btn-desc">',
+							  		'<div class="highlight-desc">',
+							  			''+highlights+'',
+									'</div>',
+									'<div id="popup-modal" class="email-me-'+product.entityId+'" style="display: none;">',
+										'<div class="amxnotif-block"  data-action="">',
+											'<form id="form-validate-stock" method="post" action="" autocomplete="off" data-hasrequired="* Required Fields" data-mage-init=\'{"validation":{}}\'>',
+									            '<label for="notification-container-'+product.entityId+'" >',
+									                'Be notified when back in stock',
+									            '</label>',
+									            '<div class="notification-container" id="notification-container-'+product.entityId+'">',
+									                '<div class="input-fields fieldset">',
+									                    '<input name="guest_email"',
+									                           'class="input-text amxnotif-guest-email"',
+									                           'id="amxnotif-guest-email-'+product.entityId+'"',
+									                           'size="30"',
+									                           'type="email"',
+									                           'data-validate="{required:true, \'validate-email\':true}"',
+									                           'placeholder=""',
+									                    '/>',
+									                    '<input type="hidden" name="product_id"',
+									                           'value="'+product.entityId+'"/>',
+									                    '<input type="hidden" name="type" value="email"/>',
+
+									                    '<input type="hidden" name="parent_id" value=""/>',
+									                    
+
+									       //              '<input type="hidden"',
+																// 'name="",',
+									       //              			'value=""/>',
+								                        '<div class="field required">',
+								                            '<input type="checkbox"',
+								                                'name="gdrp"',
+		  					                                    'id="amxnotif-stock-gdrp-'+product.entityId+'"',
+									                            'title="GDRP"',
+									                            'data-validate="{required:true}"',
+									                            'value="1">',
+									                        '<label class="label" for="amxnotif-stock-gdrp-'+product.entityId+'">',
+									                        
+									                        '</label>',
+									                	'</div>',
+									                    
+									                '</div>',
+
+									                '<div class="actions-toolbar amxnotif_guest_action">',
+									                    '<div class="primary">',
+									                        '<button type="submit" class="action submit primary">',
+									                            '<span>Submit</span>',
+									                        '</button>',
+									                    '</div>',
+									                '</div>',
+									            '</div>',
+									        '</form>',
+								    	'</div>',
+									'</div>',
+									'<div class="amxnotif-container" data-product-id="'+product.entityId+'">',
+										'<div class="block-for-non-login-user product alert stock">',
+											'<input type="hidden" value="'+product.entityId+'" name="email-me" id="email-me">',
+											// '<a href="javascript:void(0);" class="click-me">Email me when in stock</a>',
+											'<a class="click-me" href="'+unxproductUrl+'">Out Of Stock</a>',
+										'</div>',
+									'</div>',
+									// '<div class="product-item-inner">',
+									// 	'<div class="product actions product-item-actions">',
+							  //  				'<div class="actions-primary">',
+						   //     				'</div>',
+							  //  			'</div>',
+									// '</div>',
+									// '<script type="text/javascript">',
+									//     'require([',
+									//         '"jquery",',
+									//         '"mage/mage",',
+									//         '"mage/validation"',
+									//     '], function ($) {',
+									//         '"use strict";',
+									//         '$("#form-validate-stock-'+product.entityId+'").mage("validation");',
+									//     '});',
+									// '<\/script>',
+									// '<script type="text/javascript">',
+									//     'require(',
+									//         '[',
+									//         '"jquery",',
+									//         '"Magento_Ui/js/modal/modal"',
+									//         '],',
+									//         'function(',
+									//         '$,',
+									//         'modal',
+									//     ') {',
+									//         'var options = {',
+									//             'type: "popup",',
+									//             'responsive: false,',
+									//             'modalClass: "email-me-popup",',
+									//             'innerScroll: true,',
+									//             'buttons: [{',
+									//                 'text: $.mage.__("Continue Shopping"),',
+									//                 'class: "subscription-out-of-stock",',
+									//                 'click: function () {',
+									//                     'window.location.href = "'+unxproductUrl+'";',
+									//                 '}',
+									//             '}]',
+									//         '};',
+
+									//         'var popup = modal(options, $("#popup-modal"));',
+									//         '$(".click-me").on("click",function(){',
+									//             'var productId = $(this).closest("div.amxnotif-container").find("input[name=\'email-me\']").val();',
+									//             '$(".email-me-'+product.entityId+'").modal("openModal");',
+									//         '});',
+									//     '});',
+									// '<\/script>',
+									
+								'</div>',
+							'</div>',
+						'</div>',
+					'</div>'
+				].join("");
+		    }else{
+		    	priceHtml = '<div class="price-box price-final_price" data-role="priceBox" data-product-id="'+product.entityId+'" data-price-box="product-id-'+product.entityId+'"><span class="price-container price-final_price tax weee rewards_earn"><span id="product-price-" data-price-amount="'+product.price.toFixed(2)+'" data-price-type="finalPrice" class="price-wrapper "><span class="price">$'+product.price.toFixed(2)+'</span></span></span></div>';
+		    	buttonHtml = '<button type="submit" title="Add to Cart" class="action tocart primary"><span>Add to Cart</span></button>';
+		    }
+		    return[
+				'<div class="product-item">',
+					'<div class="product-item-info" data-container="product-grid">',
+						'<div class="productImgDiv">',
+						  	'<a href="'+unxproductUrl+'" class="product photo product-item-photo" tabindex="-1">',
+						    	'<span class="product-image-container" style="width:240px;">',
+						      		'<span class="product-image-wrapper" style="padding-bottom: 125%;">',
+						    		'<img class="product-image-photo" src="'+imgUrl+'">',
+						      	'</span>',
+						    	'</span>',
+							'</a>',
+						    ''+label+'',
+						'</div>',
+						'<div class="product details product-item-details">',
+							'<strong class="product name product-item-name">',
+						    	'<a class="product-item-link" title="'+unxTitle+'" href="'+unxproductUrl+'">'+title+'</a>',
+							'</strong>',
+							'<div class="productDetail">',
+								''+priceHtml+'',
+							'</div>',
+							'<div class="btn-desc">',
+						  		'<div class="highlight-desc">',
+						  			''+highlights+'',
+								'</div>',
+								'<div class="product-item-inner">',
+									'<div class="product actions product-item-actions">',
+						   				'<div class="actions-primary">',
+									    	'<form data-role="tocart-form" class="unbxd-product-to-cart" data-product-sku="'+uniqueId+'" action="https://unboxd.bubbadu.com/checkout/cart/add/product/'+product.entityId+'/" method="post">',
+							        	    	'<input type="hidden" name="product" value="'+product.entityId+'">',
+							        	    	'<input name="form_key" type="hidden" value="'+formKey+'">',
+							            		''+buttonHtml+'',
+							          		'</form>',
+					       				'</div>',
+						   			'</div>',
+								'</div>',
+							'</div>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join("");
+	  	},
+	},
+
+	spellCheck: {
+		enabled: true,
+		el: document.getElementById("didYouMeanWrapper")
+	},
+	noResults: {
+	  //noResultEl: document.getElementById("noResultWrapper"),
+	  el: document.getElementById("noResultWrapper")
+
+	},
+	facet: {
+		facetMultiSelect: true,
+		facetsEl: document.getElementById("facetsWrapper"),
+		selectedFacetsEl: document.getElementById("selectedFacetWrapper"),
+		rangeFacetEl: document.getElementById("rangeFacetWrapper"),
+		multiLevelFacetEl: document.getElementById("bucketedFacetWrapper"),
+		applyMultipleFilters:false,
+		isSearchable:false,
+		removeFacetsSelector:true,
+		defaultOpen: "ALL",
+		onFacetLoad: function (facets) {
+     
+      const self = this;
+      const { facet } = this.options;
+      const { rangeWidgetConfig } = facet;
+      require(["nouislider"],function(noUiSlider){
+      facets.forEach((facetItem) => {
+        const { facetType, facetName, gap } = facetItem;
+        const { prefix } = rangeWidgetConfig;
+
+        if (facetType === "range") {
+          const rangeId = `${facetName}_slider`;
+          const sliderElem = document.getElementById(rangeId);
+          let { end, gap, max, min, start } = facetItem;
+          const selectedValues = sliderElem.dataset;
+          if (selectedValues) {
+            (start = Number(selectedValues.x)),
+              (end = Number(selectedValues.y));
+          }
+          this[rangeId] = noUiSlider.create(sliderElem, {
+            start: [start, end],
+            tooltips: [
+              {
+                to: function (value) {
+                  return `${prefix} ${Math.round(value)}`;
+                }
+              },
+              {
+                to: function (value) {
+                  return `${prefix} ${Math.round(value)}`;
+                }
+              }
+            ],
+            connect: true,
+            range: {
+              min: 0,
+              max: max
+            },
+            format: {
+              to: function (value) {
+                return Math.round(value);
+              },
+              from: function (value) {
+                return Math.round(value);
+              }
+            },
+            padding: 0,
+            margin: 0
+          });
+          this[rangeId].on("set", function (data) {
+            const newData = {
+              start: data[0],
+              end: data[1],
+              facetName,
+              gap
+            };
+            self.setRangeSlider(newData);
+          });
+        }
+      });
+      });
+    },
+    rangeTemplate: function (range, selectedRange, facet) {
+      const { facetName, start, end } = range;
+      let min = start;
+      let max = end;
+      if (selectedRange.length > 0) {
+        const sel = selectedRange[0].replace(/[^\w\s]/gi, "").split(" TO ");
+        min = sel[0];
+        max = sel[1];
+      }
+      const rangId = `${facetName}_slider`;
+      return [
+        `<div id="${facetName}"  data-id="${facetName}" class=" UNX-range-slider-wrap">`,
+        `<div class="UNX-value-container UNX-range-value-block" ></div>`,
+        `<div id="${rangId}" data-x="${min}" data-y="${max}" class="UNX-range-slider-wrapper"></div>`,
+        `</div>`,
+        `<div>`,
+        `</div>`
+      ].join("");
+    }
+	},
+	pagination: {
+		el: document.querySelectorAll(".unxPagination"),
+		type:'FIXED_PAGINATION'
+	},
+	breadcrumb: {
+		el: document.getElementById("breadcrumpContainer"),
+		enabled: false
+	},
+	pagesize: {
+		el: document.getElementById("changeNoOfProducts"),
+		selectedPageSizeClass: "UNX-selected-pagesize",
+		pageSizeClass: "UNX-pagesize",
+		options: [
+			{
+				value: "8",
+				text: "8"
+			},
+			{
+				value: "12",
+				text: "12"
+			},
+			{
+				value: "16",
+				text: "16"
+			},
+			{
+				value: "20",
+				text: "20"
+			},
+			{
+				value: "24",
+				text: "24"
+			}
+		],
+		template: function () {
+
+			var optionArray = this.options.pagesize.options;
+			var optionsHtml = "";
+
+			for (i = 0; i < optionArray.length; i++) {
+				if (this.options.pagesize.pageSize == optionArray[i].value) {
+	  				optionsHtml = optionsHtml + '<option selected="" class="UNX-selected-pagesize" id="'+optionArray[i].value+'">'+optionArray[i].text+'</option>';
+	  			}else{
+			  		optionsHtml = optionsHtml + '<option id="'+optionArray[i].value+'">'+optionArray[i].text+'</option>';
+				}
+			}
+			return[
+				'<div class="UNX-pagesize-block">',
+			 		'<label class="label" for="limiter"><span>Show</span></label>',
+				 	'<select class="UNX-select-pagesize UNX-pagesize">',
+						''+optionsHtml+'',
+					'</select>',
+					'<span class="limiter-text">per page</span>',
+				'</div>'
+			].join("");
+		}
+	},
+
+	sort: {
+		el: document.getElementById("sortWrapper"),
+		options: [
+			{
+				value: "price desc",
+				text: "Price High to Low"
+			},
+			{
+				value: "price asc",
+				text: " Price Low to High"
+			},
+			{
+				value: "title asc",
+				text: " Product Name Ascending"
+			},
+			{
+				value: "title desc",
+				text: " Product Name Descending"
+			}
+		]
+	},
+	loader :{
+	  el:document.getElementById("loaderEl"),
+	  template: function () {
+			return[
+				'<div id="amasty-shopby-overlay" style="display: block;"><div class="loader"></div></div>'
+			].join("");
+		}
+	},
+	productView:{
+		el: document.getElementById("productViewTypeContainer"),
+		viewTypes: getView()
+	},
+	banner: {
+		el: document.getElementById("bannerContainer"),
+		count: 1
+	},
+	hashMode:false,
+	updateUrls:true,
+	onEvent: unbxdCallbackEcma = function (instance, type, data) {
+		if (type == "AFTER_RENDER") {
+			var currentF = jQueryMain('form[data-role="tocart-form"]');
+		    currentF.attr('data-mage-init', JSON.stringify({'catalogAddToCart': {}}));  
+		    var mageInit = currentF.attr('data-mage-init');
+		    if (typeof mageInit !== 'undefined') {
+		        jQueryMain(currentF).catalogAddToCart();
+		        currentF.removeAttr('data-mage-init');
+		    }               
+		}
+	},
+	variants: {
+		enabled: true,
+		count: 1,
+		groupBy: "",
+		attributes: [],
+		mapping: {
+		    image_url: "v_image_url"
+		}
+	}
+}	

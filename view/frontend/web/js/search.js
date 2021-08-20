@@ -1,5 +1,6 @@
 require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,UnbxdSearch) {
   $(document).ready(function () {
+    extendSearch();
     initSearch();
   });
   var suggest_retry_count = 0;
@@ -24,6 +25,12 @@ require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,UnbxdSea
         facetBlock.classList.remove("UNX-show-facets")
     }
 }
+
+  function extendSearch(){
+    if ("unbxdExtend" in window && typeof window.unbxdExtend === 'function'){
+      window.unbxdExtend.call();
+    }
+  }
   function initSearch() {
       if ("magento_unbxd_listingconfig" in window) {
         window.unbxdSearch = new UnbxdSearch(magento_unbxd_listingconfig);

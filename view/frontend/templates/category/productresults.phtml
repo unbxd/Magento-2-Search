@@ -16,7 +16,7 @@ if($useCategoryId):
 ?>
 <script type="text/javascript">
     require(['jquery'], function($){
-        UnbxdAnalyticsConf = { page_type : 'BOOLEAN' , page : <?php $path=$categoryId; echo '"categoryPath:\"'.$path.'\""'; ?>, id : <?php echo $categoryId; ?> }
+        UnbxdAnalyticsConf = { page_type : 'BOOLEAN' , page : <?php $path=$categoryId; echo '"categoryPathId:\"'.$path.'\""'; ?>, id : <?php echo $categoryId; ?> }
     });
 </script>
 <?php endif;?>

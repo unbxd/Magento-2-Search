@@ -52,12 +52,18 @@
                         if (data.filtername) {
                             window.location = this.input.form.action + '?q=' + encodeURIComponent(data.value) + '&filter=' + data.filtername + ':' + encodeURIComponent('"' + data.filtervalue + '"');
                         } else {
-                            this.input.form.submit();
+                            window.location =
+                            window.location.origin +
+                          "/catalogsearch/result/?q=" +
+                            encodeURIComponent(this.input.value);
                         }
                     } else if (data.type === 'POPULAR_PRODUCTS') {
                         window.location =  original.productUrl;
                     } else {
-                        this.input.form.submit();
+                        window.location =
+                            window.location.origin +
+                          "/catalogsearch/result/?q=" +
+                            encodeURIComponent(this.input.value);
                     }
                 },
 

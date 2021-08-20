@@ -47,7 +47,7 @@ require(["jquery", "handlebars"], function ($, handlebars) {
           magento_unbxd_asconfig
         );
       } else {
-        $(".unbxd-search-form-js input#search").unbxdautocomplete(
+        jQuery(".unbxd-search-form-js input#search").unbxdautocomplete(
           magento_unbxd_asconfig
         );
       }

@@ -50,9 +50,10 @@ require(["jquery"], function (jQuery) {
           if ($form.length) {
             var skuCode = $form.data("productSku");
             var productId = $form.find('input[name="product"]');
+            var variantId = $form.find('input[name="selected_configurable_option"]');
             var $qtyInput = $form.find("input#qty");
             var qty = $qtyInput.length ? $qtyInput.val() : 1;
-            trackEvent("addToCart", { pid: String(productId.length ?productId.val(): skuCode), qty: qty.toString(),requestId: null,variantId:null});
+            trackEvent("addToCart", { pid: String(productId.length ?productId.val(): skuCode), qty: qty.toString(),requestId: null,variantId:(variantId.length?String(variantId.val()):null)});
           }
         } catch (e) {
           console.log(e);

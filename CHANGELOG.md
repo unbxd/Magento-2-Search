@@ -1,4 +1,7 @@
-# Version 1.0.20
+# Version 1.0.21
+## 1.0.21 - July 11, 2021
+### Feature
+- Added VariantID on add to cart
 ## 1.0.20 - July 11, 2021
 ### Feature
 - Added style changes

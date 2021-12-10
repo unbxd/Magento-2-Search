@@ -159,6 +159,9 @@ require(
                 var asDiv = document.createElement('div');
                 asDiv.id="search_bar_container";
                 (document.getElementsByTagName('body')[0]).appendChild(asDiv);
+                var ubx = document.createElement('link'); ubx.rel = 'stylesheet';
+                ubx.href = "<?php echo $configuration["autoSuggest"]["cssUrl"]; ?>";
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
                 jQueryMain(document).ready(function(){
                 window.magento_unbxd_asconfig=<?php echo $block->getAutoSuggestConfig(); ?>;
                 });
@@ -216,6 +219,9 @@ require(
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
 
                 });
+                var ubx = document.createElement('link'); ubx.rel = 'stylesheet';
+                ubx.href = "<?php echo $configuration["search"]["cssUrl"]; ?>";
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ubx);
                 jQueryMain(document).ready(function(){
                     window.magento_unbxd_listingconfig=<?php echo ($isCategoryenabled ? $block->getCategoryConfig() : $block->getSearchConfig()); ?>;
                 });

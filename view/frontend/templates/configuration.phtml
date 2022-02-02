@@ -72,7 +72,13 @@ require(['jquery'],function($){
             },
           "pageInfo":unbxd_recommendation_pageInfo,
           itemClickHandler: function (product) {
-                window.location=product.url;
+                if('url' in product){
+                  window.location=product.url;
+                }else if ('productUrl' in product){
+                  window.location=product.productUrl;
+                }else{
+                  console.warn("product url not available so click through will not happen in recommendations carousel.")
+                }
             }
       }
       initRecommendation.call({counter:0});

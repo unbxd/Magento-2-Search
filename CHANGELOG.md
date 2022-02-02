@@ -1,5 +1,8 @@
-# Version 1.0.21
-## 1.0.21 - July 11, 2021
+# Version 1.0.22
+## 1.0.22 - Feb 3, 2022
+### Feature
+- updated recommendation click through function to be failsafe
+## 1.0.21 - Sep 16, 2021
 ### Feature
 - Added VariantID on add to cart
 ## 1.0.20 - July 11, 2021

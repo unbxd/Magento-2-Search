@@ -1,4 +1,7 @@
-# Version 1.0.22
+# Version 1.0.23
+## 1.0.23 - May 9, 2022
+### Fix
+- Fixed the qty to be integer in the order event tracking
 ## 1.0.22 - Feb 3, 2022
 ### Feature
 - updated recommendation click through function to be failsafe

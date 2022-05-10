@@ -92,16 +92,16 @@ require(["jquery"], function (jQuery) {
           window.unbxdMagentoConfig.analytics.orderConversionEntities.length
         ) {
             window.unbxdMagentoConfig.analytics.orderConversionEntities.forEach(function (item) {
-                if (item.price > 0){
+                if (item.price > 0 && item.qty){
                   item.pid=String(item.pid);
-                  item.qty=String(item.qty);
+                  item.qty=Number.parseFloat(item.qty).toFixed();
                 trackEvent("order", item);
                 }else{
                     console.warn("Item with no price not posted-"+item.pid+"-"+item.qty);
                 }
           });
         }
-      } catch (E) {
+      } catch (e) {
         console.log(e);
       }
   }

@@ -1,4 +1,7 @@
-# Version 1.0.23
+# Version 1.0.24
+## 1.0.24 - June 20, 2022
+### Fix
+- Extended Compatibility to PHP8 & Magento 2.4.4
 ## 1.0.23 - May 9, 2022
 ### Fix
 - Fixed the qty to be integer in the order event tracking

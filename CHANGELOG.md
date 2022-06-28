@@ -1,4 +1,7 @@
-# Version 1.0.24
+# Version 1.0.25
+## 1.0.25 - June 28, 2022
+### Feature
+- Updated search sdk from 2.0.3 to 2.0.5
 ## 1.0.24 - June 20, 2022
 ### Fix
 - Extended Compatibility to PHP8 & Magento 2.4.4

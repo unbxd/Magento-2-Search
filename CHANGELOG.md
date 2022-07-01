@@ -1,4 +1,7 @@
-# Version 1.0.25
+# Version 1.0.26
+## 1.0.26 - July 1, 2022
+### Feature
+- Search input value is unescaped to display human readable values
 ## 1.0.25 - June 28, 2022
 ### Feature
 - Updated search sdk from 2.0.3 to 2.0.5

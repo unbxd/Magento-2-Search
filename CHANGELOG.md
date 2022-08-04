@@ -1,4 +1,7 @@
-# Version 1.0.26
+# Version 1.0.27
+## 1.0.27 - Aug 4, 2022
+### Feature
+- Support for php 8.1
 ## 1.0.26 - July 1, 2022
 ### Feature
 - Search input value is unescaped to display human readable values

@@ -36,9 +36,9 @@ require(["jquery", "handlebars","UnbxdSearch"], function ($, handlebars,UnbxdSea
         window.unbxdSearch = new UnbxdSearch(magento_unbxd_listingconfig);
         bindEvents();
         //renderIfMobile();
-        if (magento_unbxd_listingconfig.products && magento_unbxd_listingconfig.products.productType != "SEARCH"){
+        /*if (magento_unbxd_listingconfig.products && magento_unbxd_listingconfig.products.productType != "SEARCH"){
           unbxdSearch.getCategoryPage();
-        }
+        }*/
       } else {
         if (this.counter > 5) {
           console.error("Unbxd listing config not found");

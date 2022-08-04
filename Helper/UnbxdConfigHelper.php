@@ -55,7 +55,7 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
             self::XML_PATH_SETUP_SITE_KEY,
             ScopeInterface::SCOPE_STORE,
             $store
-        ));
+        )??'');
     }
 
 
@@ -70,13 +70,13 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
             self::XML_PATH_SETUP_API_KEY,
             ScopeInterface::SCOPE_STORE,
             $store
-        ));
+        )??'');
     }
 
     public function getConfigValue($path,$storeId = null)
     {
         $value =$this->_scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE,$storeId);
-        return empty($value) ? null : trim($value);
+        return empty($value) ? null : trim($value??'');
     }
 
     public function isAutoSuggestEnabled($storeId = null)

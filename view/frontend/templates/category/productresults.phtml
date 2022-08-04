@@ -9,7 +9,7 @@
     $categoryName = $categoryObject->getName();
     $categoryPath = $categoryObject->getPath();
     $categoryPathInStore = $categoryObject->getPathInStore();
-    $categoryPathInStore = implode('>',array_reverse(explode(',',$categoryPathInStore)));
+    $categoryPathInStore = implode('>',array_reverse(explode(',',$categoryPathInStore??'')));
     $useCategoryId = $block->useCategoryIDForBrowse();
 
 ?>

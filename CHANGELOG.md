@@ -1,4 +1,7 @@
-# Version 1.0.27
+# Version 1.0.28
+## 1.0.27 - Aug 8, 2022
+### Feature
+- Vanilla search SDK updated to 2.0.6
 ## 1.0.27 - Aug 4, 2022
 ### Feature
 - Support for php 8.1

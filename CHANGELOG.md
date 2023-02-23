@@ -1,4 +1,7 @@
-# Version 1.0.29
+# Version 1.0.30
+## 1.0.30 - Feb 23, 2022
+### Feature
+- Vanilla search SDK updated to 2.0.23
 ## 1.0.29 - Jan 12, 2022
 ### Feature
 - Fixed duplicate category loads

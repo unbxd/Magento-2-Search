@@ -1,4 +1,7 @@
-# Version 1.0.30
+# Version 1.0.31
+## 1.0.31 - Feb 24, 2022
+### Feature
+- Vanilla search SDK updated to 2.0.24
 ## 1.0.30 - Feb 23, 2022
 ### Feature
 - Vanilla search SDK updated to 2.0.23

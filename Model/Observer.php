@@ -45,7 +45,7 @@ class Observer implements ObserverInterface
 
         if ("catalog_category_view" == $observer->getData("full_action_name") && $this->config->isCategoryEnabled()) {
             $category = $this->getCurrentCategory();
-            if ($category && $category->getDisplayMode() !== 'PAGE') {
+            if ($category && $category->getDisplayMode() !== 'PAGE' && $category->getDisplayMode() !== "SUB_CATEGORIES") {
                 $layout->getUpdate()->addHandle('unbxd_category_handle');
             }
         }

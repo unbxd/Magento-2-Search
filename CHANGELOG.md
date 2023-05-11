@@ -1,4 +1,7 @@
-# Version 1.0.33
+# Version 1.0.34
+## 1.0.34 - May 11, 2022
+### Feature
+- Update Vanilla search SDK updated to 2.0.34
 ## 1.0.33 - Apr 5, 2022
 ### Feature
 - Disabled unbxd pages on sub category page type

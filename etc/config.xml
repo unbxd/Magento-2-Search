@@ -118,7 +118,7 @@
   "products": {
     "productType": "SEARCH",
     "el": document.getElementById("searchResultsWrapper"),
-    "productClick": function(product,e) {
+    "onProductClick": function(product,e) {
           window.location=product.productUrl;
     },
     "attributesMap": {
@@ -217,7 +217,7 @@
   "products": {
     "productType": "CATEGORY",
     "el": document.getElementById("searchResultsWrapper"),
-    "productClick": function(product,e) {
+    "onProductClick": function(product,e) {
           window.location=product.productUrl;
     },
     "attributesMap": {

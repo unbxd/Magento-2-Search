@@ -80,7 +80,8 @@ class Configuration extends Unbxd implements CollectionDataSourceInterface
 
             ],
             'analytics' => [
-                'jsUrl' => $this->getUnbxdConfigHelper()->getAnalyticsJSUrl(),
+                'sdkUrl' => $this->getUnbxdConfigHelper()->getAnalyticsSDKUrl(),
+                'jsUrl' => $this->getUnbxdConfigHelper()->isAnalyticsV2Enabled() ?$this->getUnbxdConfigHelper()->getAnalyticsImplUrl() : $this->getUnbxdConfigHelper()->getAnalyticsJSUrl(),
                 'productId' => $this->getProductId(),
                 'cartBtnSelector' => $this->getUnbxdConfigHelper()->getAddToCartSelector(),
                 'removeCartItemSelector' => $this->getUnbxdConfigHelper()->getRemoveCartSelector(),

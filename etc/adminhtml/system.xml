@@ -66,9 +66,35 @@
 					<label>ENABLE</label>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
+				<field id="analytics_sdk_url" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Analytics SDK endpoint</label>
+                    <comment><![CDATA[The SDK Url for analytics (as Analytics sdk is independent of plugin. This helps to use to upgrade analytics independently.). ]]></comment>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+				<field id="analytics_v2" showInDefault="1" showInStore="1" showInWebsite="0" sortOrder="12" translate="label" type="select">
+					<label>ENABLE ANALYTICS (V2)</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="enable">1</field>
+                    </depends>
+				</field>
+				<field id="analytics_url" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Analytics implementation endpoint</label>
+                    <comment><![CDATA[Environment + Customer specific endpoint which has the implementation covering all events tracked by unbxd. ]]></comment>
+					<depends>
+                        <field id="enable">1</field>
+						<field id="analytics_v2">1</field>
+                    </depends>
+                </field>
                  <field id="add_cart_btn_selector" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="1">
                     <label>CSS Selector Matching Add to cart btn</label>
                     <comment><![CDATA[The CSS selector matching the add to cart button. ]]></comment>
+					<depends>
+                        <field id="enable">1</field>
+						<field id="analytics_v2">0</field>
+                    </depends>
                 </field>
 			</group>
 			<group id="recommendation" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label">

@@ -13,6 +13,9 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
     const XML_PATH_SETUP_API_KEY = 'unbxd_setup/general/api_key';
     const XML_PATH_AUTOSUGGEST_ENABLED = 'unbxd_search_config/autosuggest/enable';
     const XML_PATH_ANALYTICSENABLED = 'unbxd_search_config/analytics/enable';
+    const XML_PATH_ANALYTICS_SDK_URL = 'unbxd_search_config/analytics/analytics_sdk_url';
+    const XML_PATH_ANALYTICS_V2_ENABLED = 'unbxd_search_config/analytics/analytics_v2';
+    const XML_PATH_ANALYTICS_IMPL_URL = 'unbxd_search_config/analytics/analytics_url';
     const XML_PATH_ADDCART_BTN = 'unbxd_search_config/analytics/add_cart_btn_selector';
     const XML_PATH_REMOVECART_BTN = 'unbxd_search_config/analytics/remove_cart_item_selector';
     const XML_PATH_AUTOSUGGEST_CONFIG = 'unbxd_search_config/autosuggest/config_object';
@@ -180,12 +183,28 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
 
-
-
     public function isAnalyticsEnabled($storeId = null)
     {
         $status = $this->getConfigValue(self::XML_PATH_ANALYTICSENABLED,$storeId);
         return ($status == 1) ? true : false;
+    }
+
+    public function isAnalyticsV2Enabled($storeId = null)
+    {
+        $status = $this->getConfigValue(self::XML_PATH_ANALYTICS_V2_ENABLED,$storeId);
+        return ($status == 1) ? true : false;
+    }
+
+    public function getAnalyticsSDKUrl($storeId = null)
+    {
+        $selector = $this->getConfigValue(self::XML_PATH_ANALYTICS_SDK_URL,$storeId);
+        return ($selector) ? $selector : null;
+    }
+
+    public function getAnalyticsImplUrl($storeId = null)
+    {
+        $selector = $this->getConfigValue(self::XML_PATH_ANALYTICS_IMPL_URL,$storeId);
+        return ($selector) ? $selector : "#";
     }
 
 

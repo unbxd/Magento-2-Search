@@ -21,15 +21,16 @@ if ($analyticsEnabled): ?>
 
     UnbxdAnalyticsConf = window.UnbxdAnalyticsConf || {};
 
-    var jsfiles = <?php echo '["//d21gpk1vhmjuf5.cloudfront.net/unbxdAnalytics.js","' . $configuration["analytics"]["jsUrl"] . '"]' ?>;
+    var jsfiles = <?php echo '["'.$configuration["analytics"]["sdkUrl"].'","' . $configuration["analytics"]["jsUrl"] . '"]' ?>;
 		        
             jsfiles.forEach(function(file,index) {
+              if(file != "#"){
                     var s1 = document.createElement('script');
                     s1.type = 'text/javascript';
                     s1.async = true;
                     s1.src = file;
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s1);
-
+              }
               });
 
 </script>

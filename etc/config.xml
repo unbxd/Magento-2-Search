@@ -307,6 +307,10 @@
 }]]></config_object>
             </category>
             <analytics>
+                <enabled>0</enabled>
+                <analytics_v2>0</analytics_v2>
+                <analytics_sdk_url>https://d21gpk1vhmjuf5.cloudfront.net/unbxdAnalytics.js</analytics_sdk_url>
+                <analytics_url></analytics_url>
                 <add_cart_btn_selector>button.action.primary.tocart</add_cart_btn_selector>
                <!-- <remove_cart_item_selector>.action.action-delete</remove_cart_item_selector>-->
             </analytics>

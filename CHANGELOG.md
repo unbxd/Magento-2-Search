@@ -1,23 +1,26 @@
-# Version 1.0.35
-## 1.0.34 - Aug 31, 2022
+# Version 1.0.36
+## 1.0.36 - Sep 15, 2023
+### Feature
+- Update to support analytics v2
+## 1.0.35 - Aug 31, 2023
 ### Feature
 - Update Vanilla search SDK updated to 2.1.0
-## 1.0.34 - May 11, 2022
+## 1.0.34 - May 11, 2023
 ### Feature
 - Update Vanilla search SDK updated to 2.0.34
-## 1.0.33 - Apr 5, 2022
+## 1.0.33 - Apr 5, 2023
 ### Feature
 - Disabled unbxd pages on sub category page type
-## 1.0.32 - Mar 19, 2022
+## 1.0.32 - Mar 19, 2023
 ### Feature
 - Vanilla search SDK updated to 2.0.28
-## 1.0.31 - Feb 24, 2022
+## 1.0.31 - Feb 24, 2023
 ### Feature
 - Vanilla search SDK updated to 2.0.24
-## 1.0.30 - Feb 23, 2022
+## 1.0.30 - Feb 23, 2023
 ### Feature
 - Vanilla search SDK updated to 2.0.23
-## 1.0.29 - Jan 12, 2022
+## 1.0.29 - Jan 12, 2023
 ### Feature
 - Fixed duplicate category loads
 ## 1.0.27 - Aug 8, 2022

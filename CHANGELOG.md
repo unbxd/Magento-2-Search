@@ -1,4 +1,7 @@
-# Version 1.0.36
+# Version 1.0.37
+## 1.0.37 - Dec 21, 2023
+### Feature
+- Added Analytics scripts to the bottom of body
 ## 1.0.36 - Sep 15, 2023
 ### Feature
 - Update to support analytics v2

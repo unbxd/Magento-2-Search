@@ -1,4 +1,7 @@
-# Version 1.0.37
+# Version 1.0.38
+## 1.0.38 - Jan 30, 2023
+### Feature
+- Updated support to V3 Recs
 ## 1.0.37 - Dec 21, 2023
 ### Feature
 - Added Analytics scripts to the bottom of body

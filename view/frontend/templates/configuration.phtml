@@ -55,14 +55,13 @@ require(['jquery'],function($){
 
   $(document).ready(function(){
       var $rexContainers = $('.unbxd-recommendation-marker-js');
-      var widgets = {};
+      var widgets = [];
       if ($rexContainers.length > 0 && "unbxd_recommendation_pageInfo" in window){
         $rexContainers.each(function(index,value){
-          if ($(value).data('container')){
-          widgets[$(value).data('container')] = {
-            "name": value.id
-          }
-          }
+          widgets.push({
+            "name": $(value).data('container'),
+            "selector": value.id
+          });
         });
       var rexObj = {
         "widgets" : widgets,
@@ -119,8 +118,8 @@ require(['jquery'],function($){
       
       function initRecommendation(){
 
-        if ("_unbxd_getRecommendations" in window){
-          _unbxd_getRecommendations(rexObj);
+        if ("getUnbxdRecommendations" in window){
+          getUnbxdRecommendations(rexObj);
         }else{
           if (this.counter < 10){
             setTimeout(initRecommendation.bind({counter:this.counter+1}), 1000);

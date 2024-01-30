@@ -315,7 +315,7 @@
                <!-- <remove_cart_item_selector>.action.action-delete</remove_cart_item_selector>-->
             </analytics>
             <recommendation>
-                  <rex_sdk_url>https://d3m8huu8gvuyn3.cloudfront.net/rex_template_content/unbxd_rex_template_sdk.js</rex_sdk_url>
+                  <rex_sdk_url>https://libraries.unbxdapi.com/recs-sdk/v3.1.0/unbxd_recs_template_sdk.js</rex_sdk_url>
             </recommendation>
         </unbxd_search_config>
     </default>

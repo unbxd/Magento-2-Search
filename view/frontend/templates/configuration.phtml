@@ -119,6 +119,16 @@ require(['jquery'],function($){
       function initRecommendation(){
 
         if ("getUnbxdRecommendations" in window){
+          let beforeTemplateRenderer = function(templateData){
+                        // modify the data received from recommendation API in case required.
+                       Object.keys(window.tc).forEach(name => {
+                        if(!window.tc[name].orientation){
+                          window.tc[name].orientation="horizontal";
+                        }
+                        });
+                       return templateData;
+                    }
+          window._unbxd_registerHook("beforeTemplateRender", beforeTemplateRenderer);
           getUnbxdRecommendations(rexObj);
         }else{
           if (this.counter < 10){

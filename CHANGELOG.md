@@ -1,4 +1,7 @@
-# Version 1.0.38
+# Version 1.0.39
+## 1.0.39 - Feb 9, 2023
+### Feature
+- Updated Recs template
 ## 1.0.38 - Jan 30, 2023
 ### Feature
 - Updated support to V3 Recs

@@ -1,4 +1,7 @@
-# Version 1.0.39
+# Version 1.0.40
+## 1.0.40 - Mar 3, 2023
+### Feature
+- Support for php8.2.0
 ## 1.0.39 - Feb 9, 2023
 ### Feature
 - Updated Recs template

@@ -33,6 +33,9 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
     private $autosuggestJSUrl;
     private $searchJSUrl;
     private $analyticsJSUrl;
+    private $_storeManager;
+    private $_scopeConfig;
+    private $assetRepository;
     
 
     public function __construct(
@@ -47,6 +50,7 @@ class UnbxdConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
         $this->assetRepository = $assetRepo;
        
     }
+
 
     /**
      * @param null $store

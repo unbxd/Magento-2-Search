@@ -1,11 +1,14 @@
-# Version 1.0.40
-## 1.0.40 - Mar 3, 2023
+# Version 1.0.41
+## 1.0.41 - Mar 29, 2024
 ### Feature
 - Support for php8.2.0
-## 1.0.39 - Feb 9, 2023
+## 1.0.40 - Mar 3, 2024
+### Feature
+- Support for php8.2.0
+## 1.0.39 - Feb 9, 2024
 ### Feature
 - Updated Recs template
-## 1.0.38 - Jan 30, 2023
+## 1.0.38 - Jan 30, 2024
 ### Feature
 - Updated support to V3 Recs
 ## 1.0.37 - Dec 21, 2023

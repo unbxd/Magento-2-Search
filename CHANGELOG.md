@@ -1,4 +1,7 @@
-# Version 1.0.41
+# Version 1.0.42
+## 1.0.42 - May 29, 2024
+### Feature
+- Updated search plugin to 2.1.7
 ## 1.0.41 - Mar 29, 2024
 ### Feature
 - Support for php8.2.0

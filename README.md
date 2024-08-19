@@ -37,6 +37,6 @@ php bin/magento setup:di:compile
 php bin/magento cache:flush
 ```
 
-5. Configure module in backend
+5. Configure module in backend. In backend you can update the configs , enable / disable a particular feature
 
 

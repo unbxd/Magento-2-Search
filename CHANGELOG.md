@@ -1,5 +1,7 @@
-# Version 1.0.43
-## 1.0.33 - Jan 31, 2025
+# Version 1.0.44
+## 1.0.44 - Jan 31, 2025
+- Removed V1 analytics Attributes data attributes from search box
+## 1.0.43 - Jan 31, 2025
 - PHP8.3 support
 ## 1.0.42 - May 29, 2024
 ### Feature

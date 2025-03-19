@@ -80,6 +80,7 @@ class Configuration extends Unbxd implements CollectionDataSourceInterface
 
             ],
             'analytics' => [
+                'v2Analytics' => $this->getUnbxdConfigHelper()->isAnalyticsV2Enabled(),
                 'sdkUrl' => $this->getUnbxdConfigHelper()->getAnalyticsSDKUrl(),
                 'jsUrl' => $this->getUnbxdConfigHelper()->isAnalyticsV2Enabled() ?$this->getUnbxdConfigHelper()->getAnalyticsImplUrl() : $this->getUnbxdConfigHelper()->getAnalyticsJSUrl(),
                 'productId' => $this->getProductId(),

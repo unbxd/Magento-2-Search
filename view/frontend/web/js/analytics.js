@@ -1,6 +1,6 @@
 require(["jquery"], function (jQuery) {
   jQuery(document).ready(function () {
-    if ("unbxdMagentoConfig" in window) {
+    if ("unbxdMagentoConfig" in window && unbxdMagentoConfig.analytics && !unbxdMagentoConfig.analytics.v2Analytics) {
       triggerProductViewEvent();
       bindCartAction();
       bindOrderAction();

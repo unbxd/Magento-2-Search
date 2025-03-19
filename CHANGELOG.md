@@ -1,5 +1,7 @@
-# Version 1.0.44
-## 1.0.44 - Jan 31, 2025
+# Version 1.0.45
+## 1.0.45 - Mar 19, 2025
+- Disabled all plugin analytics event if V2 analytics is enabled
+## 1.0.44 - Mar 11, 2025
 - Removed V1 analytics Attributes data attributes from search box
 ## 1.0.43 - Jan 31, 2025
 - PHP8.3 support
